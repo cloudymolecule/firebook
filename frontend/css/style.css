@@ -1,3 +1,7 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     color: white;
     background-image:url("../images/barberChair.jpg");
@@ -65,6 +69,11 @@ body {
     border: 2px solid #000000;
 }
 
+.add-day-button:hover {
+    background-color: orangered !important;
+    cursor: pointer;
+}
+
 .local-day-time {
     display: flex;
     justify-content: center;
@@ -80,19 +89,101 @@ body {
     grid-area: create;
 }
 
-.create-edit-day {
-    display: grid;
+.create-edit-day { /* add day form */
+    display: none;
     width: 100%;
     height: 100%;
     row-gap: 3%;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
         "form-header form-header form-header"
         "enter-date-day date date"
         "choose-open-hours open-hours open-hours"
+        "choose-open-hours open-hours open-hours"
         "choose-barbers-header barbers barbers"
         ". create-save-button .";
+}
+
+.book-appt { /* book form */
+    display: grid;
+    width: 100%;
+    min-height: auto !important;
+    row-gap: 3%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr 2fr;
+    grid-template-areas:
+        "form-header"
+        "book-hours"
+        "book-menu";
+}
+
+.book-hours {
+    grid-area: book-hours;
+    display: grid;
+    width: 100%;
+    overflow: auto;
+    padding: 5px;
+    gap: 4%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    
+   
+}
+
+.book-time {
+    background-color: rgb(58, 58, 58) !important;
+    box-shadow: 3px 3px 1px rgba(255, 255, 255, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.book-time:hover {
+    background-color: rgb(111, 111, 111) !important;
+    cursor: pointer;
+}
+
+
+
+.book-menu {
+    grid-area: book-menu;
+    display: grid;
+    width: 100%;
+    overflow: auto;
+    padding: 5px;
+    gap: 10%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 1em;
+}
+
+#available-barbers, #book-client {
+    background-color: rgba(72, 72, 72);
+    color: white;
+}
+.book-save-update, .book-delete {
+    background-color: rgb(58, 58, 58);
+    box-shadow: 3px 3px 1px rgba(255, 255, 255, 0.4);
+    background-color: rgb(60, 60, 60);
+    font-size: 20px;
+    text-align: center;
+}
+
+.book-save-update:hover {
+    background-color: rgb(11, 130, 0) !important;
+    cursor: pointer;
+}
+
+.book-delete:hover {
+    background-color: rgb(131, 0, 0) !important;
+    cursor: pointer;
+}
+
+.book-barbers, .book-client {
+    font-size: 20px;
+    text-align: center;
 }
 
 .form-header {
@@ -145,7 +236,7 @@ body {
     font-size: 20px;
 }
 
-#day, #month, #year, #hour, #minutes, #ampm {
+#day, #month, #year, #open-hour, #open-minutes, #open-ampm, #close-hour, #close-minutes, #close-ampm {
     background-color: rgba(72, 72, 72, 0.4);
     color: white;
 }
@@ -195,11 +286,13 @@ body {
     border: 2px solid #000000;
 }
 
+.create-save-button:hover {
+    background-color: orangered !important;
+    cursor: pointer;
+}
+
 .form-header, .enter-date-day, .date, .select-day, .choose-open-hours, .open-hours, .choose-barbers-header, .barbers, .create-save-button {
     background-color: rgba(72, 72, 72, 0.4);
-}
-.create-edit-appt {
-    display: none;
 }
 
 .day {

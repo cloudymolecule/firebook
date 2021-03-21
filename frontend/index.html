@@ -57,9 +57,9 @@
                         </div>
                         <div class="choose-open-hours">OPEN HOURS</div>
                         <div class="open-hours">
-                            <label for="hour">Hour:</label>
-                            <select name="hour" id="hour">
-                                <option value="select">Select Hour</option>
+                            <label for="hour">Opening Hour:</label>
+                            <select name="hour" id="open-hour">
+                                <option>Select Opening Hour</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -73,15 +73,44 @@
                                 <option value="11">11</option>
                                 <option value="12">12</option>
                             </select>
-                            <label for="minutes">Minutes:</label>
-                            <select name="minutes" id="minutes">
-                                <option value="select">Select Hour</option>
+                            <label for="minutes">Opening Minutes:</label>
+                            <select name="minutes" id="open-minutes">
+                                <option>Select Opening Minutes</option>
                                 <option value="00">00</option>
                                 <option value="30">30</option>
                             </select>
-                            <label for="ampm">AM/PM:</label>
-                            <select name="ampm" id="ampm">
-                                <option value="select">Select AM or PM</option>
+                            <label for="ampm">Opening AM/PM:</label>
+                            <select name="ampm" id="open-ampm">
+                                <option>Select Opening AM or PM</option>
+                                <option value="am">AM</option>
+                                <option value="pm">PM</option>
+                            </select>
+
+                            <label for="hour">Closing Hour:</label>
+                            <select name="hour" id="close-hour">
+                                <option>Select Closing Hour</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <label for="minutes">Closing Minutes:</label>
+                            <select name="minutes" id="close-minutes">
+                                <option>Select Closing Minutes</option>
+                                <option value="00">00</option>
+                                <option value="30">30</option>
+                            </select>
+                            <label for="ampm">Closing AM/PM:</label>
+                            <select name="ampm" id="close-ampm">
+                                <option>Select Closing AM or PM</option>
                                 <option value="am">AM</option>
                                 <option value="pm">PM</option>
                             </select>
@@ -96,16 +125,46 @@
                             <input id="barber-6" autocomplete="off">
                             <input id="barber-7" autocomplete="off">
                             <input id="barber-8" autocomplete="off">
-                            <input id="barber-8" autocomplete="off">
-                            <input id="barber-10" autocomplete="off">
-
                         </div>
                         <div class="create-save">
                             <div class="create-save-button">SAVE</div>
                         </div>
                     </div>
-                    <div class="create-edit-appt">
-
+                    <div class="book-appt">
+                        <div class="form-header">ADD APPOINTMENT</div>
+                        <div class="book-hours">
+                            <div class="book-time">9:00</div>
+                            <div class="book-time">9:30</div>
+                            <div class="book-time">10:00</div>
+                            <div class="book-time">10:30</div>
+                            <div class="book-time">11:00</div>
+                            <div class="book-time">11:30</div>
+                            <div class="book-time">12:00</div>
+                            <div class="book-time">12:30</div>
+                            <div class="book-time">9:30</div>
+                            <div class="book-time">9:00</div>
+                            <div class="book-time">10:00</div>
+                            <div class="book-time">10:30</div>
+                            <div class="book-time">11:00</div>
+                            <div class="book-time">11:30</div>
+                            <div class="book-time">12:00</div>
+                            <div class="book-time">12:30</div>
+                        </div>
+                        <div class="book-menu">
+                            <div class="book-barbers">
+                                <select name="barbers" id="available-barbers">
+                                    <option>Available Barbers</option>
+                                    <option value="mark">Mark</option>
+                                    <option value="Brett">Brett</option>
+                                </select>
+                            </div>
+                            <div class="book-client">
+                                <label for="book-client">Client:</label>
+                                <input name="book-client" id="book-client" autocomplete="off">
+                            </div>
+                            <div class="book-save-update">save/update</div>
+                            <div class="book-delete">delete</div>
+                        </div>
                     </div>
                 </div>
                 <div class="day">
