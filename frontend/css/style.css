@@ -51,6 +51,15 @@ body {
     "hour create day";
 }
 
-.banner, .header, .hour, .create, .day {
+.header, .hour, .create, .day {
     background-color: rgba(16, 16, 16, 0.6);
+}
+
+.banner {
+    background-image: url("../images/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    
+
 }
