@@ -1,0 +1,52 @@
+.wrapper {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: blanchedalmond;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 960px;
+    height: 90%;
+    padding: 10px;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.5);
+    
+
+}
+
+.banner {
+    grid-area: banner;
+}
+
+.header {
+    grid-area: header;
+}
+
+.hour {
+    grid-area: hour;
+}
+
+.create {
+    grid-area: create;
+}
+
+.day {
+    grid-area: day;
+}
+
+.container {
+   display: grid;
+   height: 100%;
+   width: 100%;
+   gap: 3%;
+   grid-template-columns: 1fr 4fr 1fr;
+   grid-template-rows: 1fr 5fr;
+   grid-template-areas:
+    "banner header header"
+    "hour create day";
+    
+
+}
+
+.banner, .header, .hour, .create, .day {
+    background-color: aquamarine;
+}
