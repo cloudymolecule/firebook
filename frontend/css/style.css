@@ -1,16 +1,22 @@
+body {
+    color: white;
+    background-image:url("../images/barberChair.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .wrapper {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    background-color: blanchedalmond;
+    background-color: rgba(72, 72, 72, 0.4);
+    
     width: 100%;
     margin: 0 auto;
     max-width: 960px;
     height: 90%;
     padding: 10px;
-    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.5);
-    
-
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 1);
 }
 
 .banner {
@@ -43,10 +49,8 @@
    grid-template-areas:
     "banner header header"
     "hour create day";
-    
-
 }
 
 .banner, .header, .hour, .create, .day {
-    background-color: aquamarine;
+    background-color: rgba(16, 16, 16, 0.6);
 }
