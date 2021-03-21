@@ -89,7 +89,7 @@ body {
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
         "form-header form-header form-header"
-        "enter-date-day date select-day"
+        "enter-date-day date date"
         "choose-open-hours open-hours open-hours"
         "choose-barbers-header barbers barbers"
         ". create-save-button .";
@@ -113,6 +113,12 @@ body {
 
 .date {
     grid-area: date;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 3%;
+    text-align: center;
+    font-size: 20px;
 }
 
 .select-day {
@@ -121,6 +127,10 @@ body {
 
 .choose-open-hours {
     grid-area: choose-open-hours;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
 }
 
 .open-hours {
@@ -129,6 +139,10 @@ body {
 
 .choose-barbers-header {
     grid-area: choose-barbers-header;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
 }
 
 .barbers {
