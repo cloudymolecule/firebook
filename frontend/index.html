@@ -3,6 +3,7 @@
         <meta charset="utf-8" />
         <link rel="icon" type="image/png" href="images/favicon.png"/>
         <link rel="stylesheet" href="css/style.css" />
+        
     </head>
     <body>
         <div class="wrapper">
@@ -20,7 +21,7 @@
                     hour
                 </div>
                 <div class="create">
-                    <div class="create-edit-day">
+                    <div class="create-edit-day" id="create-edit-day">
                         <div class="form-header">APPOINTMENT DAY</div>
                         <div class="enter-date-day">DATE</div>
                         <div class="date">
@@ -131,7 +132,7 @@
                             <div class="create-save-button">SAVE</div>
                         </div>
                     </div>
-                    <div class="book-appt">
+                    <div class="book-appt" id="book-appt">
                         <div class="form-header">APPOINTMENTS</div>
                         <div class="book-hours">
                             <div class="book-time" id="book-time-1">9:00</div>
@@ -150,6 +151,7 @@
                             <div class="book-time">11:30</div>
                             <div class="book-time">12:00</div>
                             <div class="book-time">12:30</div>
+                            
                         </div>
                         <div class="book-menu">
                             <div class="book-barbers">
@@ -165,9 +167,8 @@
                             </div>
                             <div></div>
                             <div></div>
-                            
-                            <div class="book-save-update" id="appt-save-update">save/update</div>
                             <div class="book-delete" id="appt-delete">delete</div>
+                            <div class="book-save-update" id="appt-save-update">save/update</div>
                         </div>
                     </div>
                 </div>
@@ -176,5 +177,6 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
