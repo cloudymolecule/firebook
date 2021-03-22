@@ -1,6 +1,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <link rel="icon" type="image/png" href="images/favicon.png"/>
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
@@ -9,19 +10,19 @@
                 <div class="banner"></div>
                 <div class="header">
                     <div class="add-day">
-                        <div class="add-day-button">ADD DAY</div>
+                        <div class="add-day-button" id="add-day-button">ADD DAY</div>
                     </div>
-                    <div class="local-day-time">
+                    <div class="local-day-time" id="local-day-time">
                         Wednesday, March 2020, 18:50
                     </div>
                 </div>
-                <div class="hour">
+                <div class="display-hour" id="display-hour">
                     hour
                 </div>
                 <div class="create">
                     <div class="create-edit-day">
                         <div class="form-header">APPOINTMENT DAY</div>
-                        <div class="enter-date-day">DATE AND DAY</div>
+                        <div class="enter-date-day">DATE</div>
                         <div class="date">
                             <label for="day">Day</label>
                             <select name="day" id="day">
@@ -131,9 +132,9 @@
                         </div>
                     </div>
                     <div class="book-appt">
-                        <div class="form-header">ADD APPOINTMENT</div>
+                        <div class="form-header">APPOINTMENTS</div>
                         <div class="book-hours">
-                            <div class="book-time">9:00</div>
+                            <div class="book-time" id="book-time-1">9:00</div>
                             <div class="book-time">9:30</div>
                             <div class="book-time">10:00</div>
                             <div class="book-time">10:30</div>
@@ -165,12 +166,12 @@
                             <div></div>
                             <div></div>
                             
-                            <div class="book-save-update">save/update</div>
-                            <div class="book-delete">delete</div>
+                            <div class="book-save-update" id="appt-save-update">save/update</div>
+                            <div class="book-delete" id="appt-delete">delete</div>
                         </div>
                     </div>
                 </div>
-                <div class="day">
+                <div class="display-day" id="display-day">
                     day
                 </div>
             </div>

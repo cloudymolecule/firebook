@@ -20,7 +20,7 @@ body {
     max-width: 960px;
     height: 90%;
     padding: 10px;
-    box-shadow: 1px 1px 12px rgb(87, 1, 1);
+    box-shadow: 5px 5px 12px rgb(255, 255, 255);
 }
 
 .container {
@@ -32,7 +32,7 @@ body {
     grid-template-rows: 1fr 5fr;
     grid-template-areas:
      "banner header header"
-     "hour create day";
+     "display-hour create display-day";
 }
 
 .banner {
@@ -81,8 +81,8 @@ body {
     font-size: 30px;
 }
 
-.hour {
-    grid-area: hour;
+.display-hour {
+    grid-area: display-hour;
 }
 
 .create {
@@ -130,7 +130,7 @@ body {
 }
 
 .book-time {
-    background-color: rgb(58, 58, 58) !important;
+    /* background-color: rgb(58, 58, 58) !important; */
     box-shadow: 3px 3px 1px rgba(255, 255, 255, 0.4);
     display: flex;
     justify-content: center;
@@ -139,7 +139,9 @@ body {
 }
 
 .book-time:hover {
-    background-color: rgb(111, 111, 111) !important;
+    background-color: rgb(215, 215, 215) !important;
+    box-shadow: 3px 3px 1px rgba(255, 0, 0, 0.9);
+    color: black;
     cursor: pointer;
 }
 
@@ -292,8 +294,8 @@ body {
     background-color: rgba(72, 72, 72, 0.4);
 }
 
-.day {
-    grid-area: day;
+.display-day {
+    grid-area: display-day;
 }
 
 .hour, .create, .day {
