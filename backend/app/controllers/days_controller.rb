@@ -1,51 +1,41 @@
 class DaysController < ApplicationController
-  before_action :set_day, only: [:show, :update, :destroy]
-
-  # GET /days
+  
   def index
-    @days = Day.all
+    days = Day.all
 
-    render json: @days
+    render json: days
   end
 
-  # GET /days/1
   def show
-    render json: @day
+    render json: day
   end
 
-  # POST /days
   def create
-    @day = Day.new(day_params)
+    day = Day.new(day_params)
 
-    if @day.save
-      render json: @day, status: :created, location: @day
+    if day.save
+      render json: day, status: :created, location: day
     else
-      render json: @day.errors, status: :unprocessable_entity
+      render json: day.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /days/1
   def update
-    if @day.update(day_params)
-      render json: @day
+    if day.update(day_params)
+      render json: day
     else
-      render json: @day.errors, status: :unprocessable_entity
+      render json: day.errors, status: :unprocessable_entity
     end
   end
 
-  # DELETE /days/1
   def destroy
-    @day.destroy
+    day.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_day
-      @day = Day.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
+    
     def day_params
       params.require(:day).permit(:date, :open_hour, :close_hour)
     end
+
 end
