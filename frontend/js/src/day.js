@@ -8,4 +8,5 @@ class Day{
 
         Day.all.push(this)
     }
+    
 }
