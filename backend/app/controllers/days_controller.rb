@@ -35,7 +35,7 @@ class DaysController < ApplicationController
   private
     
     def day_params
-      params.require(:day).permit(:date, :open_hour, :close_hour)
+      params.require(:day).permit(:date, :open_hour, :close_hour, :barbers)
     end
 
 end

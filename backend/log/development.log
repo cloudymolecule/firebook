@@ -607,3 +607,118 @@ Processing by DaysController#create as JSON
 Completed 201 Created in 9ms (Views: 0.6ms | ActiveRecord: 2.7ms | Allocations: 1829)
 
 
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDays (20210322154936)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "days" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date" varchar, "open_hour" integer, "close_hour" integer, "barbers" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210322154936"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAppointments (20210322155054)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "time" varchar, "client" varchar, "day_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b8753cdf79"
+FOREIGN KEY ("day_id")
+  REFERENCES "days" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_day_id" ON "appointments" ("day_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210322155054"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-03-23 17:38:40.226843"], ["updated_at", "2021-03-23 17:38:40.226843"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/days" for ::1 at 2021-03-23 13:44:20 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.5ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 12ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 4397)
+
+
+Started POST "/days" for ::1 at 2021-03-23 13:44:41 -0400
+Processing by DaysController#create as JSON
+  Parameters: {"date"=>"January 21, 2", "open_hour"=>10, "close_hour"=>21, "day"=>{"date"=>"January 21, 2", "open_hour"=>10, "close_hour"=>21}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mDay Create (0.9ms)[0m  [1m[32mINSERT INTO "days" ("date", "open_hour", "close_hour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "January 21, 2"], ["open_hour", 10], ["close_hour", 21], ["created_at", "2021-03-23 17:44:41.080461"], ["updated_at", "2021-03-23 17:44:41.080461"]]
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+Completed 201 Created in 15ms (Views: 1.0ms | ActiveRecord: 2.7ms | Allocations: 5686)
+
+
+Started GET "/days" for ::1 at 2021-03-23 13:45:14 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms | Allocations: 737)
+
+
+Started POST "/days" for ::1 at 2021-03-23 13:45:33 -0400
+Processing by DaysController#create as JSON
+  Parameters: {"date"=>"February 2345, 45", "open_hour"=>140, "close_hour"=>150, "day"=>{"date"=>"February 2345, 45", "open_hour"=>140, "close_hour"=>150}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mDay Create (0.5ms)[0m  [1m[32mINSERT INTO "days" ("date", "open_hour", "close_hour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "February 2345, 45"], ["open_hour", 140], ["close_hour", 150], ["created_at", "2021-03-23 17:45:33.882691"], ["updated_at", "2021-03-23 17:45:33.882691"]]
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+Completed 201 Created in 6ms (Views: 0.4ms | ActiveRecord: 2.3ms | Allocations: 1845)
+
+
+Started GET "/days" for ::1 at 2021-03-23 13:47:52 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms | Allocations: 848)
+
+
+Started POST "/days" for ::1 at 2021-03-23 13:48:12 -0400
+Processing by DaysController#create as JSON
+  Parameters: {"date"=>"March 432, 345", "open_hour"=>131, "close_hour"=>140, "day"=>{"date"=>"March 432, 345", "open_hour"=>131, "close_hour"=>140}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mDay Create (0.8ms)[0m  [1m[32mINSERT INTO "days" ("date", "open_hour", "close_hour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "March 432, 345"], ["open_hour", 131], ["close_hour", 140], ["created_at", "2021-03-23 17:48:12.581396"], ["updated_at", "2021-03-23 17:48:12.581396"]]
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+Completed 201 Created in 7ms (Views: 0.5ms | ActiveRecord: 2.2ms | Allocations: 1830)
+
+
+Started GET "/days" for ::1 at 2021-03-23 13:49:13 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms | Allocations: 956)
+
+
+Started POST "/days" for ::1 at 2021-03-23 13:49:35 -0400
+Processing by DaysController#create as JSON
+  Parameters: {"date"=>"February 12, 2322", "open_hour"=>10, "close_hour"=>10, "barbers"=>"fidfis, sdgl;kfsgjl, dsdfsg, dfgdfg", "day"=>{"date"=>"February 12, 2322", "open_hour"=>10, "close_hour"=>10, "barbers"=>"fidfis, sdgl;kfsgjl, dsdfsg, dfgdfg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mDay Create (0.5ms)[0m  [1m[32mINSERT INTO "days" ("date", "open_hour", "close_hour", "barbers", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date", "February 12, 2322"], ["open_hour", 10], ["close_hour", 10], ["barbers", "fidfis, sdgl;kfsgjl, dsdfsg, dfgdfg"], ["created_at", "2021-03-23 17:49:35.750220"], ["updated_at", "2021-03-23 17:49:35.750220"]]
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+Completed 201 Created in 6ms (Views: 0.6ms | ActiveRecord: 1.6ms | Allocations: 1858)
+
+

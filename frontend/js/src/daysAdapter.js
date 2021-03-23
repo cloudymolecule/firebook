@@ -9,7 +9,7 @@ class DaysAdapter{
             //this works 
         })
     }
-    fetchPostDays(dayId){
+    fetchPostDays(){
         const monthF = document.getElementById('month').value
         const yearF = document.getElementById('year').value
         const dayF = document.getElementById('day').value
@@ -19,9 +19,6 @@ class DaysAdapter{
         const closeHourF = document.getElementById('close-hour').value
         const closeMinutesF = document.getElementById('close-minutes').value
         const closeAmpmF = document.getElementById('close-ampm').value
-        // let barber1, barber2, barber3, barber4, barber5, barber6, barber7, barber8
-        
-        
         const barber1 = document.getElementById('barber-1').value
         const barber2 = document.getElementById('barber-2').value
         const barber3 = document.getElementById('barber-3').value
@@ -30,22 +27,6 @@ class DaysAdapter{
         const barber6 = document.getElementById('barber-6').value
         const barber7 = document.getElementById('barber-7').value
         const barber8 = document.getElementById('barber-8').value
-
-        
-        
-
-        //make barbers here
-        const res = removeEmptyBarber()
-        function removeEmptyBarber(){
-            const barbers = [barber1, barber2, barber3, barber4, barber5, barber6, barber7, barber8]
-            let cleanBarbers = []
-            for (let i = 0; i < barbers.length; i++) {
-                if (barbers[i] !== ""){
-                    cleanBarbers.push(barbers[i])
-                }
-            }
-            return cleanBarbers
-        }
         
         function convertDate(month, day, year){
             return `${month} ${day}, ${year}` 
@@ -66,11 +47,22 @@ class DaysAdapter{
             return parseInt(fullTime, 10)
         }
 
+        const bar = [barber1, barber2, barber3, barber4, barber5, barber6, barber7, barber8]
+        let barbs = ""
+        for (let i = 0; i < bar.length; i++) {
+            if (bar[i] !== ""){
+                if (barbs === ""){
+                    barbs = bar[i]
+                } else {
+                    barbs = `${barbs}, ${bar[i]}`
+                }
+            }
+        }
         let date = convertDate(monthF, dayF, yearF)
         let open_hour = convertOpenCloseHour(openHourF, openMinutesF, openAmpmF)
         let close_hour = convertOpenCloseHour(closeHourF, closeMinutesF, closeAmpmF)
-
-        let dayObj = {date, open_hour, close_hour}
+        let barbers = barbs
+        let dayObj = {date, open_hour, close_hour, barbers}
 
         let configObj = {
             method: 'POST',
@@ -86,7 +78,7 @@ class DaysAdapter{
             if (response.errors) {
                 //display errors
             } else {
-                
+                console.log(response)
             }
             
         })
