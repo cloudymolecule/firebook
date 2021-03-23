@@ -1,3 +1,8 @@
+const daysAdapter = new DaysAdapter
+daysAdapter.fetchDays()
+
+
+
 // let a = document.getElementById('create-edit-day')
 // a.style.display = 'none'
 
@@ -5,9 +10,9 @@
 // b.style.display = 'grid'
 
 //add and edit day form
-// const createEditDay = document.getElementById('create-edit-day')
+const createEditDay = document.getElementById('create-edit-day')
 
-// const addDayButton = document.getElementById('add-day-button')
+const addDayButton = document.getElementById('add-day-button')
 // const dayForm = document.getElementById('day')
 // const monthForm = document.getElementById('month')
 // const yearForm = document.getElementById('year')
@@ -25,23 +30,23 @@
 // const barber6Form = document.getElementById('barber-6')
 // const barber7Form = document.getElementById('barber-7')
 // const barber8Form = document.getElementById('barber-8')
-// const createSaveButton = document.getElementById('create-save-button')
+const createSaveButton = document.getElementById('create-save-button')
 
 //appointments form
 //each appointment here
-// const bookAppt = document.getElementById('book-appt')
+const bookAppt = document.getElementById('book-appt')
 
 // const availableBarbersForm = document.getElementById('available-barbers')
 // const bookClientForm = document.getElementById('book-client')
 // const apptDelete = document.getElementById('appt-delete')
 // const apptSaveUpdate = document.getElementById('appt-save-update')
 
-// addDayButton.addEventListener('click', () => {
-//     bookAppt.style.display = 'none'
-//     createEditDay.style.display = 'grid'
-// })
+addDayButton.addEventListener('click', () => {
+    bookAppt.style.display = 'none'
+    createEditDay.style.display = 'grid'
+})
 
-// createSaveButton.addEventListener('click', () => {
-//     const day = new Day
-// })
+createSaveButton.addEventListener('click', () => {
+    
+})
 
