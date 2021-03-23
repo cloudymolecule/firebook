@@ -384,3 +384,123 @@ Processing by DaysController#index as */*
 Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms | Allocations: 711)
 
 
+Started GET "/days" for ::1 at 2021-03-23 11:20:35 -0400
+Processing by DaysController#index as */*
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+  [1m[36mDay Load (0.5ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 1.8ms | Allocations: 1272)
+
+
+Started GET "/days" for ::1 at 2021-03-23 11:21:03 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 693)
+
+
+Started GET "/days" for ::1 at 2021-03-23 11:21:22 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms | Allocations: 693)
+
+
+Started GET "/days" for ::1 at 2021-03-23 11:22:41 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 693)
+
+
+Started GET "/days" for ::1 at 2021-03-23 11:23:33 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.2ms | Allocations: 693)
+
+
+Started GET "/days" for ::1 at 2021-03-23 11:23:51 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 693)
+
+
+Started GET "/days" for ::1 at 2021-03-23 11:28:42 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.2ms | Allocations: 693)
+
+
+Started GET "/days" for ::1 at 2021-03-23 11:29:25 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.1ms | Allocations: 693)
+
+
+Started GET "/days" for ::1 at 2021-03-23 11:30:00 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.1ms | Allocations: 693)
+
+
+Started GET "/days" for ::1 at 2021-03-23 11:30:56 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms | Allocations: 693)
+
+
+Started POST "/days" for ::1 at 2021-03-23 11:31:14 -0400
+Processing by DaysController#create as JSON
+  Parameters: {"d"=>"february 21, 2021", "o"=>20, "c"=>151, "day"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 122)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: day):
+  
+app/controllers/days_controller.rb:38:in `day_params'
+app/controllers/days_controller.rb:14:in `create'
+Started GET "/days" for ::1 at 2021-03-23 11:33:47 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 692)
+
+
+Started POST "/days" for ::1 at 2021-03-23 11:34:02 -0400
+Processing by DaysController#create as JSON
+  Parameters: {"day"=>"march 21, 2021", "open_hour"=>11, "close_hour"=>141}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 990)
+
+
+  
+NoMethodError (undefined method `permit' for "march 21, 2021":String):
+  
+app/controllers/days_controller.rb:38:in `day_params'
+app/controllers/days_controller.rb:14:in `create'
+Started GET "/days" for ::1 at 2021-03-23 11:34:59 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 692)
+
+
+Started POST "/days" for ::1 at 2021-03-23 11:35:13 -0400
+Processing by DaysController#create as JSON
+  Parameters: {"date"=>"march 21, 2021", "open_hour"=>31, "close_hour"=>21, "day"=>{"date"=>"march 21, 2021", "open_hour"=>31, "close_hour"=>21}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mDay Create (1.0ms)[0m  [1m[32mINSERT INTO "days" ("date", "open_hour", "close_hour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "march 21, 2021"], ["open_hour", 31], ["close_hour", 21], ["created_at", "2021-03-23 15:35:13.057476"], ["updated_at", "2021-03-23 15:35:13.057476"]]
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+Completed 201 Created in 7ms (Views: 1.0ms | ActiveRecord: 1.8ms | Allocations: 2186)
+
+

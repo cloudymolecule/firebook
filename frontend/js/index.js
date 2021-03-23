@@ -47,6 +47,6 @@ addDayButton.addEventListener('click', () => {
 })
 
 createSaveButton.addEventListener('click', () => {
-    
+    daysAdapter.fetchPostDays()
 })
 

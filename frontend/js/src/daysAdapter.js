@@ -10,15 +10,15 @@ class DaysAdapter{
         })
     }
     fetchPostDays(dayId){
-        const month = document.getElementById('month').value
-        const year = document.getElementById('year').value
-        const day = document.getElementById('day').value
-        const openHour = document.getElementById('open-hour').value
-        const openMinutes = document.getElementById('open-minutes').value
-        const openAmpm = document.getElementById('open-ampm').value
-        const closeHour = document.getElementById('close-hour').value
-        const closeMinutes = document.getElementById('close-minutes').value
-        const closeAmpm = document.getElementById('close-ampm').value
+        const monthF = document.getElementById('month').value
+        const yearF = document.getElementById('year').value
+        const dayF = document.getElementById('day').value
+        const openHourF = document.getElementById('open-hour').value
+        const openMinutesF = document.getElementById('open-minutes').value
+        const openAmpmF = document.getElementById('open-ampm').value
+        const closeHourF = document.getElementById('close-hour').value
+        const closeMinutesF = document.getElementById('close-minutes').value
+        const closeAmpmF = document.getElementById('close-ampm').value
         // const barber1 = document.getElementById('barber-1')
         // const barber2 = document.getElementById('barber-2')
         // const barber3 = document.getElementById('barber-3')
@@ -27,12 +27,12 @@ class DaysAdapter{
         // const barber6 = document.getElementById('barber-6')
         // const barber7 = document.getElementById('barber-7')
         // const barber8 = document.getElementById('barber-8')
+        
+        let date = convertDate(monthF, dayF, yearF)
+        let open_hour = convertOpenCloseHour(openHourF, openMinutesF, openAmpmF)
+        let close_hour = convertOpenCloseHour(closeHourF, closeMinutesF, closeAmpmF)
 
-        let dayObj = {
-            date = convertDate(month, day, year),
-            open_hour = convertOpenCloseHour(openHour, openMinutes, openAmpm),
-            close_hour = convertOpenCloseHour(closeHour, closeMinutes, closeAmpm)
-        }
+        let dayObj = {date, open_hour, close_hour}
 
         function convertDate(month, day, year){
             return `${month} ${day}, ${year}` 
@@ -40,11 +40,16 @@ class DaysAdapter{
 
         function convertOpenCloseHour(hour, minutes, ampm){
             let h = parseInt(hour, 10)
-            let m = parseInt(minutes, 10)
+            // let m = parseInt(minutes, 10)
             if (ampm === 'pm'){
                 h = h + 12
             }
-            const fullTime = `${h}${m}`
+            if (minutes === "30") {
+                minutes = 1
+            } else {
+                minutes = 0
+            }
+            const fullTime = `${h}${minutes}`
             return parseInt(fullTime, 10)
         }
 
@@ -56,10 +61,11 @@ class DaysAdapter{
             },
             body: JSON.stringify(dayObj)
         }
-        fetch(this.baseUrl)
+        fetch(this.baseUrl, configObj)
         .then(res => res.json())
         .then(response => {
             console.log(response)
+            
         })
         
     }
