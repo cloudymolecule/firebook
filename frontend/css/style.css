@@ -26,7 +26,7 @@ body {
     display: grid;
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
     gap: 3%;
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: 1fr 5fr;
@@ -103,7 +103,6 @@ body {
         "choose-open-hours open-hours open-hours"
         "choose-barbers-header barbers barbers"
         ". create-save-button .";
-        
         
 }
 
