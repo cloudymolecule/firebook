@@ -3,34 +3,34 @@ class DaysController < ApplicationController
   def index
     days = Day.all
 
-    render json: days
+    render json: DaySerializer.new(days)
   end
 
-  def show
-    render json: day
-  end
+  # def show
+  #   render json: day
+  # end
 
   def create
     day = Day.new(day_params)
 
     if day.save
-      render json: day, status: :created, location: day
+      render json: DaySerializer.new(day)
     else
       render json: day.errors, status: :unprocessable_entity
     end
   end
 
-  def update
-    if day.update(day_params)
-      render json: day
-    else
-      render json: day.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   if day.update(day_params)
+  #     render json: day
+  #   else
+  #     render json: day.errors, status: :unprocessable_entity
+  #   end
+  # end
 
-  def destroy
-    day.destroy
-  end
+  # def destroy
+  #   day.destroy
+  # end
 
   private
     

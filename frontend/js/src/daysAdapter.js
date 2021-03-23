@@ -6,7 +6,15 @@ class DaysAdapter{
         fetch(this.baseUrl)
         .then(res => res.json())
         .then(response => {
-            //this works 
+            if (response.data) {
+                response.data.forEach(element => {
+                    console.log(element.attributes.date)
+                    let day = new Day(element.attributes)
+                    day.attachToDom()
+                })
+                // let day = new Day(response.data.attributes)
+                // day.attachToDom()
+            }
         })
     }
     fetchPostDays(){
@@ -78,11 +86,13 @@ class DaysAdapter{
             if (response.errors) {
                 //display errors
             } else {
-                console.log(response)
+                let day = new Day(response.data.attributes)
+                // console.log(day)
+                day.attachToDom()
             }
             
         })
-
+        
 
         
     }

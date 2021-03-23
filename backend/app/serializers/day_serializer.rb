@@ -1,4 +1,4 @@
 class DaySerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :date, :open_hour, :close_hour, :barbers, :appointments
 end
