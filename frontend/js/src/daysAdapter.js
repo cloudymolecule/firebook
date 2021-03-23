@@ -19,21 +19,34 @@ class DaysAdapter{
         const closeHourF = document.getElementById('close-hour').value
         const closeMinutesF = document.getElementById('close-minutes').value
         const closeAmpmF = document.getElementById('close-ampm').value
-        // const barber1 = document.getElementById('barber-1')
-        // const barber2 = document.getElementById('barber-2')
-        // const barber3 = document.getElementById('barber-3')
-        // const barber4 = document.getElementById('barber-4')
-        // const barber5 = document.getElementById('barber-5')
-        // const barber6 = document.getElementById('barber-6')
-        // const barber7 = document.getElementById('barber-7')
-        // const barber8 = document.getElementById('barber-8')
+        // let barber1, barber2, barber3, barber4, barber5, barber6, barber7, barber8
         
-        let date = convertDate(monthF, dayF, yearF)
-        let open_hour = convertOpenCloseHour(openHourF, openMinutesF, openAmpmF)
-        let close_hour = convertOpenCloseHour(closeHourF, closeMinutesF, closeAmpmF)
+        
+        const barber1 = document.getElementById('barber-1').value
+        const barber2 = document.getElementById('barber-2').value
+        const barber3 = document.getElementById('barber-3').value
+        const barber4 = document.getElementById('barber-4').value
+        const barber5 = document.getElementById('barber-5').value
+        const barber6 = document.getElementById('barber-6').value
+        const barber7 = document.getElementById('barber-7').value
+        const barber8 = document.getElementById('barber-8').value
 
-        let dayObj = {date, open_hour, close_hour}
+        
+        
 
+        //make barbers here
+        const res = removeEmptyBarber()
+        function removeEmptyBarber(){
+            const barbers = [barber1, barber2, barber3, barber4, barber5, barber6, barber7, barber8]
+            let cleanBarbers = []
+            for (let i = 0; i < barbers.length; i++) {
+                if (barbers[i] !== ""){
+                    cleanBarbers.push(barbers[i])
+                }
+            }
+            return cleanBarbers
+        }
+        
         function convertDate(month, day, year){
             return `${month} ${day}, ${year}` 
         }
@@ -53,6 +66,12 @@ class DaysAdapter{
             return parseInt(fullTime, 10)
         }
 
+        let date = convertDate(monthF, dayF, yearF)
+        let open_hour = convertOpenCloseHour(openHourF, openMinutesF, openAmpmF)
+        let close_hour = convertOpenCloseHour(closeHourF, closeMinutesF, closeAmpmF)
+
+        let dayObj = {date, open_hour, close_hour}
+
         let configObj = {
             method: 'POST',
             headers: {
@@ -64,9 +83,15 @@ class DaysAdapter{
         fetch(this.baseUrl, configObj)
         .then(res => res.json())
         .then(response => {
-            console.log(response)
+            if (response.errors) {
+                //display errors
+            } else {
+                
+            }
             
         })
+
+
         
     }
 }

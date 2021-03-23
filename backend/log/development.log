@@ -504,3 +504,106 @@ Processing by DaysController#create as JSON
 Completed 201 Created in 7ms (Views: 1.0ms | ActiveRecord: 1.8ms | Allocations: 2186)
 
 
+Started GET "/days" for ::1 at 2021-03-23 12:47:53 -0400
+Processing by DaysController#index as */*
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+  [1m[36mDay Load (0.7ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 33ms (Views: 29.6ms | ActiveRecord: 2.7ms | Allocations: 1391)
+
+
+Started POST "/days" for ::1 at 2021-03-23 12:48:10 -0400
+Processing by DaysController#create as JSON
+  Parameters: {"date"=>"February 21, 2012", "open_hour"=>10, "close_hour"=>31, "day"=>{"date"=>"February 21, 2012", "open_hour"=>10, "close_hour"=>31}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mDay Create (0.7ms)[0m  [1m[32mINSERT INTO "days" ("date", "open_hour", "close_hour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "February 21, 2012"], ["open_hour", 10], ["close_hour", 31], ["created_at", "2021-03-23 16:48:10.831974"], ["updated_at", "2021-03-23 16:48:10.831974"]]
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+Completed 201 Created in 10ms (Views: 0.7ms | ActiveRecord: 1.6ms | Allocations: 1831)
+
+
+Started GET "/days" for ::1 at 2021-03-23 12:56:45 -0400
+Processing by DaysController#index as */*
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+  [1m[36mDay Load (0.7ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 1.7ms | Allocations: 1508)
+
+
+Started GET "/days" for ::1 at 2021-03-23 12:57:39 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.4ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.4ms | Allocations: 929)
+
+
+Started POST "/days" for ::1 at 2021-03-23 12:58:01 -0400
+Processing by DaysController#create as JSON
+  Parameters: {"date"=>"January 21, 2121", "open_hour"=>10, "close_hour"=>20, "day"=>{"date"=>"January 21, 2121", "open_hour"=>10, "close_hour"=>20}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mDay Create (0.5ms)[0m  [1m[32mINSERT INTO "days" ("date", "open_hour", "close_hour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "January 21, 2121"], ["open_hour", 10], ["close_hour", 20], ["created_at", "2021-03-23 16:58:01.248203"], ["updated_at", "2021-03-23 16:58:01.248203"]]
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+Completed 201 Created in 7ms (Views: 0.5ms | ActiveRecord: 1.7ms | Allocations: 1831)
+
+
+Started GET "/days" for ::1 at 2021-03-23 12:58:25 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.3ms | Allocations: 1048)
+
+
+Started POST "/days" for ::1 at 2021-03-23 12:58:43 -0400
+Processing by DaysController#create as JSON
+  Parameters: {"date"=>"February 21, 2121", "open_hour"=>20, "close_hour"=>10, "day"=>{"date"=>"February 21, 2121", "open_hour"=>20, "close_hour"=>10}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mDay Create (0.5ms)[0m  [1m[32mINSERT INTO "days" ("date", "open_hour", "close_hour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "February 21, 2121"], ["open_hour", 20], ["close_hour", 10], ["created_at", "2021-03-23 16:58:43.729186"], ["updated_at", "2021-03-23 16:58:43.729186"]]
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+Completed 201 Created in 8ms (Views: 0.5ms | ActiveRecord: 2.0ms | Allocations: 1831)
+
+
+Started GET "/days" for ::1 at 2021-03-23 13:04:48 -0400
+Processing by DaysController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+  [1m[36mDay Load (0.4ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 1.1ms | Allocations: 1745)
+
+
+Started GET "/days" for ::1 at 2021-03-23 13:04:58 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 1166)
+
+
+Started GET "/days" for ::1 at 2021-03-23 13:05:38 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.2ms | Allocations: 1166)
+
+
+Started POST "/days" for ::1 at 2021-03-23 13:06:02 -0400
+Processing by DaysController#create as JSON
+  Parameters: {"date"=>"January 21, 1212", "open_hour"=>10, "close_hour"=>10, "day"=>{"date"=>"January 21, 1212", "open_hour"=>10, "close_hour"=>10}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mDay Create (0.8ms)[0m  [1m[32mINSERT INTO "days" ("date", "open_hour", "close_hour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "January 21, 1212"], ["open_hour", 10], ["close_hour", 10], ["created_at", "2021-03-23 17:06:02.725166"], ["updated_at", "2021-03-23 17:06:02.725166"]]
+  ↳ app/controllers/days_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:16:in `create'
+Completed 201 Created in 9ms (Views: 0.6ms | ActiveRecord: 2.7ms | Allocations: 1829)
+
+
