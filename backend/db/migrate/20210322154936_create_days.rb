@@ -5,7 +5,7 @@ class CreateDays < ActiveRecord::Migration[6.1]
       t.string :month
       t.string :year
       t.integer :open_hour
-      t.integer :open_minutes
+      t.string :open_minutes
       t.string :open_ampm
       t.integer :close_hour
       t.integer :close_minutes
