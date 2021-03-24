@@ -278,4 +278,45 @@ body {
 
 .display-day {
     grid-area: display-day;
+    overflow: auto;
+    height: 95%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
 }
+
+.each-day {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: rgb(0, 0, 0, 0.4);
+    text-align: center;
+    grid-template-areas: 
+        "day-date day-date"
+        "day-date day-date"
+        "day-edit-button day-delete-button"
+    ;
+    /* opacity: 0.4; */
+}
+.day-date {
+    grid-area: day-date;
+}
+.day-edit-button {
+    grid-area: day-edit-button;
+    background-color: rgb(0, 255, 21, 0.4);
+    /* opacity: 0.4; */
+}
+
+.day-delete-button {
+    grid-area: day-delete-button;
+    background-color: rgb(255, 0, 0, 0.4);
+    /* opacity: 0.4; */
+}
+/* 
+display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 2fr 1fr 2fr;
+    grid-template-areas:
+        ". . ."
+        ". create-save-button ."
+        ". . ."; */
