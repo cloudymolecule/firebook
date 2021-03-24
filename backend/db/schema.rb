@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_155054) do
+ActiveRecord::Schema.define(version: 2021_03_24_004648) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "time"
@@ -21,14 +21,22 @@ ActiveRecord::Schema.define(version: 2021_03_22_155054) do
     t.index ["day_id"], name: "index_appointments_on_day_id"
   end
 
+  create_table "barbers", force: :cascade do |t|
+    t.string "date"
+    t.integer "day_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["day_id"], name: "index_barbers_on_day_id"
+  end
+
   create_table "days", force: :cascade do |t|
     t.string "date"
     t.integer "open_hour"
     t.integer "close_hour"
-    t.string "barbers"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "appointments", "days"
+  add_foreign_key "barbers", "days"
 end
