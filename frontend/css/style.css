@@ -246,30 +246,6 @@ body {
     color: white;
 }
 
-/* .choose-barbers-header {
-    grid-area: choose-barbers-header;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-} */
-
-/* .barbers {
-    grid-area: barbers;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 3%;
-    text-align: center;
-    font-size: 20px;
-} */
-
-/* #barber-1, #barber-2, #barber-3, #barber-4, #barber-5, #barber-6, #barber-7, #barber-8, #barber-9, #barber-10 {
-    background-color: rgba(72, 72, 72, 0.4);
-    color: white;
-} */
-
-
 .create-save {
     grid-area: create-save-button;
     display: grid;
@@ -302,8 +278,4 @@ body {
 
 .display-day {
     grid-area: display-day;
-}
-
-.hour, .create, .day {
-    /* background-color: rgba(16, 16, 16, 0.6); */
 }
