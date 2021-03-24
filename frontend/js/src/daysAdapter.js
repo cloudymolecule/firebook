@@ -16,20 +16,19 @@ class DaysAdapter{
         })
     }
     fetchPostDays(){
-        const monthF = document.getElementById('month').value
-        const yearF = document.getElementById('year').value
-        const dayF = document.getElementById('day').value
-        const openHourF = document.getElementById('open-hour').value
-        const openMinutesF = document.getElementById('open-minutes').value
-        const openAmpmF = document.getElementById('open-ampm').value
-        const closeHourF = document.getElementById('close-hour').value
-        const closeMinutesF = document.getElementById('close-minutes').value
-        const closeAmpmF = document.getElementById('close-ampm').value
+        const num_day = document.getElementById('day').value
+        const month = document.getElementById('month').value
+        const year = document.getElementById('year').value
+        const open_hour = this.convertTimeTo24(document.getElementById('open-hour').value, document.getElementById('open-ampm').value)
+        const open_minutes = parseInt(document.getElementById('open-minutes').value, 10)
+        const open_ampm = document.getElementById('open-ampm').value
+        const close_hour = this.convertTimeTo24(document.getElementById('close-hour').value, document.getElementById('close-ampm').value)
+        const close_minutes = parseInt(document.getElementById('close-minutes').value, 10)
+        const close_ampm = document.getElementById('close-ampm').value
+        
 
-        let date = this.convertDate(monthF, dayF, yearF)
-        let open_hour = this.convertOpenCloseHour(openHourF, openMinutesF, openAmpmF)
-        let close_hour = this.convertOpenCloseHour(closeHourF, closeMinutesF, closeAmpmF)
-        let dayObj = {date, open_hour, close_hour}
+
+        let dayObj = {num_day, month, year, open_hour, open_minutes, open_ampm, close_hour, close_minutes, close_ampm}
 
         let configObj = {
             method: 'POST',
@@ -55,23 +54,16 @@ class DaysAdapter{
 
         
     }
-    convertDate(month, day, year){
-        return `${month} ${day}, ${year}` 
+    fetchEditDay(dayId){
+
     }
 
-    convertOpenCloseHour(hour, minutes, ampm){
+    convertTimeTo24(hour, ampm){
         let h = parseInt(hour, 10)
-        // let m = parseInt(minutes, 10)
         if (ampm === 'pm'){
             h = h + 12
         }
-        if (minutes === "30") {
-            minutes = 1
-        } else {
-            minutes = 0
-        }
-        const fullTime = `${h}${minutes}`
-        return parseInt(fullTime, 10)
+        return h
     }
 
     

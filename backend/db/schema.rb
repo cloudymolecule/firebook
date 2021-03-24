@@ -23,9 +23,15 @@ ActiveRecord::Schema.define(version: 2021_03_22_155054) do
   end
 
   create_table "days", force: :cascade do |t|
-    t.string "date"
+    t.string "num_day"
+    t.string "month"
+    t.string "year"
     t.integer "open_hour"
+    t.integer "open_minutes"
+    t.string "open_ampm"
     t.integer "close_hour"
+    t.integer "close_minutes"
+    t.string "close_ampm"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
