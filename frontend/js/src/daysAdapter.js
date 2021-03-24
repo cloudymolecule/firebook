@@ -44,8 +44,9 @@ class DaysAdapter{
             if (response.errors) {
                 //display errors
             } else {
-                console.log(response)
-                // let day = new Day(response.data.attributes)
+                // console.log(response)
+                let day = new Day(response.data.attributes)
+                console.log(day)
                 // const barbers = this.areThereBarbers()
                 // console.log(barbers)
                 // day.attachToDom()
