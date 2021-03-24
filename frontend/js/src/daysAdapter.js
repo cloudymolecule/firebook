@@ -9,7 +9,8 @@ class DaysAdapter{
             if (response.data) {
                 response.data.forEach(element => {
                     let day = new Day(element.attributes)
-                    day.attachToDom() //make this look pretty
+                    day.attachToDom()
+                    day.addEventListeners()
                 })
             }
         })
@@ -46,7 +47,7 @@ class DaysAdapter{
             } else {
                 console.log(response)
                 let day = new Day(response.data.attributes)
-                day.attachToDom() //make this look pretty
+                day.attachToDom()
             }
             
         })
