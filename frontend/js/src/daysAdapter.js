@@ -20,13 +20,11 @@ class DaysAdapter{
         const month = document.getElementById('month').value
         const year = document.getElementById('year').value
         const open_hour = this.convertTimeTo24(document.getElementById('open-hour').value, document.getElementById('open-ampm').value)
-        const open_minutes = parseInt(document.getElementById('open-minutes').value, 10)
+        const open_minutes = document.getElementById('open-minutes').value
         const open_ampm = document.getElementById('open-ampm').value
         const close_hour = this.convertTimeTo24(document.getElementById('close-hour').value, document.getElementById('close-ampm').value)
-        const close_minutes = parseInt(document.getElementById('close-minutes').value, 10)
+        const close_minutes = document.getElementById('close-minutes').value
         const close_ampm = document.getElementById('close-ampm').value
-        
-
 
         let dayObj = {num_day, month, year, open_hour, open_minutes, open_ampm, close_hour, close_minutes, close_ampm}
 
