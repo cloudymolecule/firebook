@@ -2,13 +2,14 @@ class DaysController < ApplicationController
   
   def index
     days = Day.all
-
+    
     render json: DaySerializer.new(days)
   end
 
-  # def show
-  #   render json: day
-  # end
+  def show
+    day = Day.find(params[:id])
+    render json: DaySerializer.new(day)
+  end
 
   def create
     day = Day.new(day_params)
@@ -35,7 +36,7 @@ class DaysController < ApplicationController
   private
     
     def day_params
-      params.require(:day).permit(:date, :open_hour, :close_hour, :barbers)
+      params.require(:day).permit(:date, :open_hour, :close_hour)
     end
 
 end

@@ -1,4 +1,5 @@
 class BarberSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :name
+  belongs_to :day
 end

@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_03_24_004648) do
   end
 
   create_table "barbers", force: :cascade do |t|
-    t.string "date"
+    t.string "name"
     t.integer "day_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
