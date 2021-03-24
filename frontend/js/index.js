@@ -1,5 +1,6 @@
-const daysAdapter = new DaysAdapter
-daysAdapter.fetchDays()
+// const daysAdapter = new DaysAdapter
+// const barbersAdapter = new BarbersAdapter
+// daysAdapter.fetchDays()
 
 const createEditDay = document.getElementById('create-edit-day')
 const addDayButton = document.getElementById('add-day-button')
@@ -16,11 +17,17 @@ const bookAppt = document.getElementById('book-appt')
 // const apptSaveUpdate = document.getElementById('appt-save-update')
 
 addDayButton.addEventListener('click', () => {
-    bookAppt.style.display = 'none'
+   if (createEditDay.style.display !== 'none'){
+    createEditDay.style.display = 'none'
+    bookAppt.style.display = 'grid'
+   } else {
     createEditDay.style.display = 'grid'
+    bookAppt.style.display = 'none'
+   }
+    
 })
 
-createSaveButton.addEventListener('click', () => {
-    daysAdapter.fetchPostDays()
-})
+// createSaveButton.addEventListener('click', () => {
+//     daysAdapter.fetchPostDays()
+// })
 

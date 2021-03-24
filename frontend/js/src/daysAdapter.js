@@ -24,11 +24,25 @@ class DaysAdapter{
         const closeHourF = document.getElementById('close-hour').value
         const closeMinutesF = document.getElementById('close-minutes').value
         const closeAmpmF = document.getElementById('close-ampm').value
+
+
+        const barber1 = document.getElementById('barber-1').value
+        const barber2 = document.getElementById('barber-2').value
+        // const barber3 = document.getElementById('barber-3').value
+        // const barber4 = document.getElementById('barber-4').value
+        // const barber5 = document.getElementById('barber-5').value
+        // const barber6 = document.getElementById('barber-6').value
+        // const barber7 = document.getElementById('barber-7').value
+        // const barber8 = document.getElementById('barber-8').value
         
         let date = this.convertDate(monthF, dayF, yearF)
         let open_hour = this.convertOpenCloseHour(openHourF, openMinutesF, openAmpmF)
         let close_hour = this.convertOpenCloseHour(closeHourF, closeMinutesF, closeAmpmF)
-        let dayObj = {date, open_hour, close_hour}
+        let barbers = [
+            {name: barber1},
+            {name: barber2}
+        ]
+        let dayObj = {date, open_hour, close_hour, barbers}
 
         let configObj = {
             method: 'POST',
@@ -44,11 +58,9 @@ class DaysAdapter{
             if (response.errors) {
                 //display errors
             } else {
-                // console.log(response)
-                let day = new Day(response.data.attributes)
-                console.log(day)
-                // const barbers = this.areThereBarbers()
-                // console.log(barbers)
+                console.log(response)
+                // let day = new Day(response.data.attributes)
+                // barbersAdapter.fetchPostBarbers()
                 // day.attachToDom()
             }
             
@@ -76,26 +88,5 @@ class DaysAdapter{
         return parseInt(fullTime, 10)
     }
 
-    areThereBarbers(){
-        const barber1 = document.getElementById('barber-1').value
-        const barber2 = document.getElementById('barber-2').value
-        const barber3 = document.getElementById('barber-3').value
-        const barber4 = document.getElementById('barber-4').value
-        const barber5 = document.getElementById('barber-5').value
-        const barber6 = document.getElementById('barber-6').value
-        const barber7 = document.getElementById('barber-7').value
-        const barber8 = document.getElementById('barber-8').value
-        const bar = [barber1, barber2, barber3, barber4, barber5, barber6, barber7, barber8]
-        let barbs = ""
-        for (let i = 0; i < bar.length; i++) {
-            if (bar[i] !== ""){
-                if (barbs === ""){
-                    barbs = bar[i]
-                } else {
-                    barbs = `${barbs}, ${bar[i]}`
-                }
-            }
-        }
-        return barbs
-    }
+    
 }
