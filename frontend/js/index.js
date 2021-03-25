@@ -4,7 +4,7 @@ daysAdapter.fetchDays()
 const createEditDay = document.getElementById('create-edit-day')
 const addDayButton = document.getElementById('add-day-button')
 
-const createSaveButton = document.getElementById('create-save-button')
+const createEditButton = document.getElementById('create-edit-button')
 
 //appointments form
 //each appointment here
@@ -15,11 +15,12 @@ const bookAppt = document.getElementById('book-appt')
 // const apptSaveUpdate = document.getElementById('appt-save-update')
 
 addDayButton.addEventListener('click', () => {
+    createEditButton.innerText = "Create"
     createEditDay.reset()
     createEditDay.style.display = 'grid'
     bookAppt.style.display = 'none'
 })
 
-createSaveButton.addEventListener('click', () => {
+createEditButton.addEventListener('click', () => {
     daysAdapter.fetchPostDays()
 })

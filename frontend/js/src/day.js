@@ -48,6 +48,7 @@ class Day{
         // fetchEditDay(this.id)
         const createEditDay = document.getElementById('create-edit-day')
         const bookAppt = document.getElementById('book-appt')
+        const createEditButton = document.getElementById('create-edit-button')
 
         let specificDay = this.getDayById(this.id)
         // specificDay = this.deconvertFrom24Hours(specificDay)
@@ -76,6 +77,7 @@ class Day{
         closeMinutesF.value = specificDay.close_minutes
         closeAmpmF.value = specificDay.close_ampm
 
+        createEditButton.innerText = 'Update'
         
     }
 

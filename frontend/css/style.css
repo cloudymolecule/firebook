@@ -35,6 +35,10 @@ body {
      "display-hour create display-day";
 }
 
+.container::-webkit-scrollbar {
+    display: none;
+}
+
 .banner {
     grid-area: banner;
     background-image: url("../images/logo.png");
@@ -101,7 +105,7 @@ body {
         "enter-date-day date date"
         "choose-open-hours open-hours open-hours"
         "choose-open-hours open-hours open-hours"
-        ". create-save-button .";
+        ". create-edit-button .";
         
 }
 
@@ -128,6 +132,10 @@ body {
     gap: 4%;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
+}
+
+.book-hours::-webkit-scrollbar {
+    display: none;
 }
 
 .book-hours::-webkit-scrollbar {
@@ -247,18 +255,18 @@ body {
 }
 
 .create-save {
-    grid-area: create-save-button;
+    grid-area: create-edit-button;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 2fr 1fr 2fr;
     grid-template-areas:
         ". . ."
-        ". create-save-button ."
+        ". create-edit-button ."
         ". . .";
 }
 
-.create-save-button {
-    grid-area: create-save-button;
+.create-edit-button {
+    grid-area: create-edit-button;
     background-color: rgb(99, 99, 99) !important;
     box-shadow: 1px 1px 12px rgba(0, 0, 0, 1);
     display: flex;
@@ -267,12 +275,12 @@ body {
     border: 2px solid #000000;
 }
 
-.create-save-button:hover {
+.create-edit-button:hover {
     background-color: orangered !important;
     cursor: pointer;
 }
 
-.form-header, .enter-date-day, .date, .select-day, .choose-open-hours, .open-hours, .choose-barbers-header, .barbers, .create-save-button {
+.form-header, .enter-date-day, .date, .select-day, .choose-open-hours, .open-hours, .choose-barbers-header, .barbers, .create-edit-button {
     background-color: rgba(72, 72, 72, 0.4);
 }
 
@@ -283,6 +291,10 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1em;
+}
+
+.display-day::-webkit-scrollbar {
+    display: none;
 }
 
 .each-day {
@@ -299,6 +311,7 @@ body {
     ;
     /* opacity: 0.4; */
 }
+
 .day-date {
     grid-area: day-date;
 }
