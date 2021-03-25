@@ -80,8 +80,8 @@ class Day{
         createEditButton.innerText = 'Update'
     }
 
-    deleteDay = (x) => {
-        console.log(`day-${this.id} delete`)
+    deleteDay = () => {
+        daysAdapter.deleteDay(this.id)
     }
 
     static getDayById(id){

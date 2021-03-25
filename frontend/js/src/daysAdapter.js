@@ -2,6 +2,7 @@ class DaysAdapter{
     constructor(){
         this.baseUrl = 'http://localhost:3000/days'
     }
+
     fetchDays(){
         fetch(this.baseUrl)
         .then(res => res.json())
@@ -15,6 +16,7 @@ class DaysAdapter{
             }
         })
     }
+
     fetchPostDays(){
         const num_day = document.getElementById('day').value
         const month = document.getElementById('month').value
@@ -52,6 +54,7 @@ class DaysAdapter{
 
         
     }
+
     fetchPatchDay(dayId){
         const num_day = document.getElementById('day').value
         const month = document.getElementById('month').value
@@ -87,6 +90,22 @@ class DaysAdapter{
                 day.deleteInDom(response.id)
                 day.addEventListeners()
             }
+        })
+    }
+
+    deleteDay(dayId){
+        let configObj = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        }
+        fetch(`${this.baseUrl}/${dayId}`, configObj)
+        .then(response => {
+            Day.all = Day.all.filter(d => d.id != dayId)
+            let dayElem = document.getElementById(`day-${dayId}`)
+            dayElem.remove()
         })
     }
 

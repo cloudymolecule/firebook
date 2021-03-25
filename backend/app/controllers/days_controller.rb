@@ -31,6 +31,7 @@ class DaysController < ApplicationController
   end
 
   def destroy
+    day = Day.find(params[:id])
     day.destroy
   end
 
