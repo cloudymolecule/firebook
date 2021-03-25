@@ -15,6 +15,7 @@ const bookAppt = document.getElementById('book-appt')
 // const apptSaveUpdate = document.getElementById('appt-save-update')
 
 addDayButton.addEventListener('click', () => {
+    createEditDay.reset()
     createEditDay.style.display = 'grid'
     bookAppt.style.display = 'none'
 })

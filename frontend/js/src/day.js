@@ -50,7 +50,7 @@ class Day{
         const bookAppt = document.getElementById('book-appt')
 
         let specificDay = this.getDayById(this.id)
-        specificDay = this.deconvertFrom24Hours(specificDay)
+        // specificDay = this.deconvertFrom24Hours(specificDay)
         createEditDay.style.display = 'grid'
         bookAppt.style.display = 'none'
         
@@ -69,10 +69,10 @@ class Day{
         dayF.value = specificDay.num_day
         monthF.value = specificDay.month
         yearF.value = specificDay.year
-        openHourF.value = specificDay.open_hour
+        openHourF.value = this.deconvertFrom24Hours(specificDay.open_hour, specificDay.open_ampm)
         openMinutesF.value = specificDay.open_minutes
         openAmpmF.value = specificDay.open_ampm
-        closeHourF.value = specificDay.close_hour
+        closeHourF.value = this.deconvertFrom24Hours(specificDay.close_hour, specificDay.close_ampm)
         closeMinutesF.value = specificDay.close_minutes
         closeAmpmF.value = specificDay.close_ampm
 
@@ -91,14 +91,15 @@ class Day{
         }
     }
 
-    deconvertFrom24Hours(day){
-        if (day.open_ampm === 'pm') {
-            day.open_hour = day.open_hour - 12
+    deconvertFrom24Hours(hour, ampm){
+        let res
+        if (ampm === 'pm') {
+            res = hour - 12
+        } else {
+            res = hour
         }
-        if (day.close_ampm === 'pm') {
-            day.close_hour = day.close_hour - 12
-        }
-        return day
+        console.log(res)
+        return res
     }
 
 }

@@ -61,7 +61,7 @@ class DaysAdapter{
         if (ampm === 'pm'){
             h = h + 12
         }
-        return h
+        return h.toString()
     }
 
     
