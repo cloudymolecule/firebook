@@ -15,12 +15,16 @@ const bookAppt = document.getElementById('book-appt')
 // const apptSaveUpdate = document.getElementById('appt-save-update')
 
 addDayButton.addEventListener('click', () => {
-    createEditButton.innerText = "Create"
+    createEditButton.innerText = 'Create'
     createEditDay.reset()
     createEditDay.style.display = 'grid'
     bookAppt.style.display = 'none'
 })
 
 createEditButton.addEventListener('click', () => {
-    daysAdapter.fetchPostDays()
+    if (createEditButton.innerText === 'Create') {
+        daysAdapter.fetchPostDays()
+    } else {
+        daysAdapter.fetchPatchDay(createEditButton.id)
+    }
 })

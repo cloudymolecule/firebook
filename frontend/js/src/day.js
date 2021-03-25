@@ -34,6 +34,16 @@ class Day{
         date.addEventListener('click', this.apptDay)
         edit.addEventListener('click', this.openEditDay)
         del.addEventListener('click', this.deleteDay)
+        
+
+
+
+
+
+
+
+
+
     }
 
     apptDay = (x) => {
@@ -46,9 +56,11 @@ class Day{
 
     openEditDay = (x) => {
         // fetchEditDay(this.id)
+        // const createEditDay = document.getElementById('create-edit-day')
         const createEditDay = document.getElementById('create-edit-day')
         const bookAppt = document.getElementById('book-appt')
         const createEditButton = document.getElementById('create-edit-button')
+        createEditButton.id = this.id
 
         let specificDay = this.getDayById(this.id)
         // specificDay = this.deconvertFrom24Hours(specificDay)
@@ -80,6 +92,8 @@ class Day{
         createEditButton.innerText = 'Update'
         
     }
+
+
 
     deleteDay = (x) => {
         console.log(`day-${this.id} delete`)
