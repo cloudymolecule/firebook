@@ -27,6 +27,11 @@ class Day{
         displayDay.append(this.element)
     }
 
+    deleteInDom(id){
+        const eachDay = document.getElementById(`day-${id}`)
+        eachDay.remove()
+    }
+
     addEventListeners(){
         const date = document.getElementById(`day-date-${this.id}`)
         const edit = document.getElementById(`day-edit-button-${this.id}`)
@@ -34,36 +39,22 @@ class Day{
         date.addEventListener('click', this.apptDay)
         edit.addEventListener('click', this.openEditDay)
         del.addEventListener('click', this.deleteDay)
-        
-
-
-
-
-
-
-
-
-
     }
 
-    apptDay = (x) => {
+    apptDay = () => {
         const createEditDay = document.getElementById('create-edit-day')
         const bookAppt = document.getElementById('book-appt')
         createEditDay.style.display = 'none'
         bookAppt.style.display = 'grid'
-        
     }
 
-    openEditDay = (x) => {
-        // fetchEditDay(this.id)
-        // const createEditDay = document.getElementById('create-edit-day')
+    openEditDay = () => {
         const createEditDay = document.getElementById('create-edit-day')
         const bookAppt = document.getElementById('book-appt')
-        const createEditButton = document.getElementById('create-edit-button')
+        const createEditBttn = document.querySelector(`create-edit-button-${this.id}`)
+        let specificDay = Day.getDayById(this.id)
         createEditButton.id = this.id
-
-        let specificDay = this.getDayById(this.id)
-        // specificDay = this.deconvertFrom24Hours(specificDay)
+        console.log(specificDay)
         createEditDay.style.display = 'grid'
         bookAppt.style.display = 'none'
         
@@ -77,8 +68,6 @@ class Day{
         const closeMinutesF = document.getElementById('close-minutes')
         const closeAmpmF = document.getElementById('close-ampm')
         
-        
-        console.log(specificDay)
         dayF.value = specificDay.num_day
         monthF.value = specificDay.month
         yearF.value = specificDay.year
@@ -88,23 +77,15 @@ class Day{
         closeHourF.value = this.deconvertFrom24Hours(specificDay.close_hour, specificDay.close_ampm)
         closeMinutesF.value = specificDay.close_minutes
         closeAmpmF.value = specificDay.close_ampm
-
         createEditButton.innerText = 'Update'
-        
     }
-
-
 
     deleteDay = (x) => {
         console.log(`day-${this.id} delete`)
     }
 
-    getDayById(id){
-        for (let i = 0; i < Day.all.length; i++){
-            if (Day.all[i].id === id) {
-                return Day.all[i]
-            }
-        }
+    static getDayById(id){
+        return Day.all.find(day => day.id == id)
     }
 
     deconvertFrom24Hours(hour, ampm){
@@ -114,7 +95,6 @@ class Day{
         } else {
             res = hour
         }
-        console.log(res)
         return res
     }
 

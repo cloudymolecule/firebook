@@ -21,17 +21,18 @@ class DaysController < ApplicationController
     end
   end
 
-  # def update
-  #   if day.update(day_params)
-  #     render json: day
-  #   else
-  #     render json: day.errors, status: :unprocessable_entity
-  #   end
-  # end
+  def update
+    day = Day.find(params[:id])
+    if day.update(day_params)
+      render json: day
+    else
+      render json: day.errors, status: :unprocessable_entity
+    end
+  end
 
-  # def destroy
-  #   day.destroy
-  # end
+  def destroy
+    day.destroy
+  end
 
   private
     

@@ -79,10 +79,14 @@ class DaysAdapter{
             if (response.errors) {
                 //display errors
             } else {
-                console.log(response)
-                
+                Day.all = Day.all.filter(function(day){
+                    return day.id !== response.id
+                })
+                let day = new Day(response)
+                day.attachToDom()
+                day.deleteInDom(response.id)
+                day.addEventListeners()
             }
-            
         })
     }
 
