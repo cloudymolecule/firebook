@@ -97,7 +97,6 @@ class Day{
         }
         return res
     }
-
 }
 
  

@@ -5,6 +5,8 @@ const createEditDay = document.getElementById('create-edit-day')
 const addDayButton = document.getElementById('add-day-button')
 const createEditButton = document.getElementById('create-edit-button')
 const bookAppt = document.getElementById('book-appt')
+const localDayTime = document.getElementById('local-day-time')
+localDayTime.innerText = new Date().toLocaleString()
 
 addDayButton.addEventListener('click', () => {
     createEditButton.innerText = 'Create'
@@ -20,3 +22,7 @@ createEditButton.addEventListener('click', () => {
         daysAdapter.fetchPatchDay(createEditButton.id)
     }
 })
+
+setInterval(() => {
+    localDayTime.innerText = `${new Date().toLocaleString()}`
+}, 1000)

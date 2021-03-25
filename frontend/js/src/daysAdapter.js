@@ -47,6 +47,7 @@ class DaysAdapter{
                 console.log(response)
                 let day = new Day(response.data.attributes)
                 day.attachToDom()
+                day.addEventListeners()
             }
             
         })
