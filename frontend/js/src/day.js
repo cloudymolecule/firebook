@@ -46,6 +46,7 @@ class Day{
         const bookAppt = document.getElementById('book-appt')
         createEditDay.style.display = 'none'
         bookAppt.style.display = 'grid'
+        this.createAndAppendHalfHourDivs()
     }
 
     openEditDay = () => {
@@ -96,6 +97,26 @@ class Day{
             res = hour
         }
         return res
+    }
+
+    createAndAppendHalfHourDivs(){
+        const bookHours = document.getElementById('book-hours')
+        bookHours.innerHTML = ""
+        let halfHours = (this.close_hour - this.open_hour) * 2
+        let thirtyOpen = (this.open_minutes).toString()
+        let thirtyClose = (this.close_minutes).toString()
+        if (this.open_minutes === 30 && this.close_minutes === 0) {halfHours -= 1}
+        if (this.close_minutes === 30 && this.open_minutes === 0) {halfHours += 1}
+        let startHour = this.deconvertFrom24Hours(this.open_hour, this.open_ampm)
+        
+        for (let i = 0; i < halfHours; i++) {
+            if (thirtyOpen === '0') {
+                thirtyOpen = '00'
+            }
+            let hH = `<div class="book-time" id="book-time-${i+1}">${startHour}:${thirtyOpen}</div>`
+            bookHours.innerHTML = bookHours.innerHTML + hH
+            if (thirtyOpen === '30') {thirtyOpen = '00'; startHour += 1} else {thirtyOpen = '30'}
+        }
     }
 }
 
