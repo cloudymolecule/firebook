@@ -113,11 +113,12 @@ class Day{
             if (thirtyOpen === '0') {
                 thirtyOpen = '00'
             }
-            let hH = `<div class="book-time" id="book-time-${i+1}">${startHour}:${thirtyOpen}</div>`
+            let ampmTrue
+            if (startHour > 12) {startHour -= 12; ampmTrue = 'PM'} else if (startHour === 12) {ampmTrue = 'PM'} else {ampmTrue = "AM"}
+            let hH = `<div class="book-time" id="book-time-${i+1}">${startHour}:${thirtyOpen} ${ampmTrue}</div>`
             bookHours.innerHTML = bookHours.innerHTML + hH
             if (thirtyOpen === '30') {thirtyOpen = '00'; startHour += 1} else {thirtyOpen = '30'}
         }
     }
 }
 
- 
