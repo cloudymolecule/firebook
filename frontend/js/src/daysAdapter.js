@@ -21,10 +21,14 @@ class DaysAdapter{
         const num_day = document.getElementById('day').value
         const month = document.getElementById('month').value
         const year = document.getElementById('year').value
-        const open_hour = this.convertTimeTo24(document.getElementById('open-hour').value, document.getElementById('open-ampm').value)
+        // const open_hour = this.convertTimeTo24(document.getElementById('open-hour').value, document.getElementById('open-ampm').value)
+        const open_hour = parseInt(document.getElementById('open-hour').value, 10)
+
         const open_minutes = document.getElementById('open-minutes').value
         const open_ampm = document.getElementById('open-ampm').value
-        const close_hour = this.convertTimeTo24(document.getElementById('close-hour').value, document.getElementById('close-ampm').value)
+        // const close_hour = this.convertTimeTo24(document.getElementById('close-hour').value, document.getElementById('close-ampm').value)
+        const close_hour = parseInt(document.getElementById('close-hour').value, 10)
+
         const close_minutes = document.getElementById('close-minutes').value
         const close_ampm = document.getElementById('close-ampm').value
 
@@ -42,7 +46,7 @@ class DaysAdapter{
         .then(res => res.json())
         .then(response => {
             if (response.errors) {
-                //display errors
+                console.log(response.errors)
             } else {
                 console.log(response)
                 let day = new Day(response.data.attributes)

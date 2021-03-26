@@ -13,11 +13,10 @@ class DaysController < ApplicationController
 
   def create
     day = Day.new(day_params)
-
     if day.save
       render json: DaySerializer.new(day)
     else
-      render json: day.errors, status: :unprocessable_entity
+      render json: {errors: day.errors.full_messages}
     end
   end
 

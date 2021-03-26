@@ -26,7 +26,6 @@ body {
     display: grid;
     height: 100%;
     width: 100%;
-    overflow: auto;
     gap: 3%;
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: 1fr 5fr;
@@ -35,9 +34,7 @@ body {
      "display-hour create display-day";
 }
 
-.container::-webkit-scrollbar {
-    display: none;
-}
+
 
 .banner {
     grid-area: banner;
@@ -95,8 +92,9 @@ body {
 
 .create-edit-day { /* add day form */
     display: none; /*grid or none, it is known*/
+    overflow: scroll;
     width: 100%;
-    height: 100%;
+    height: 80%;
     row-gap: 3%;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -106,12 +104,16 @@ body {
         "choose-open-hours open-hours open-hours"
         "choose-open-hours open-hours open-hours"
         ". create-edit-button .";
-        
+}
+
+.create-edit-day::-webkit-scrollbar {
+    display: none;
 }
 
 .book-appt { /* book form */ 
     display: none; /*grid or none, it is the way*/
     width: 100%;
+    height: 80%;
     min-height: auto !important;
     row-gap: 1%;
     grid-template-columns: 1fr;
@@ -287,7 +289,7 @@ body {
 .display-day {
     grid-area: display-day;
     overflow: auto;
-    height: 95%;
+    height: 90%;
     display: grid;
     grid-template-columns: 1fr;
     gap: 1em;
