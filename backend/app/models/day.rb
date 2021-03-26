@@ -5,14 +5,31 @@ class Day < ApplicationRecord
     validates :num_day, :year, numericality: {only_integer: true, message: "Only whole numbers allowed."}
     validates :num_day, length: {maximum: 2}
     validates :year, length: {maximum: 4}
-    
-    def validate_open_hour
-        
+    # validates :open_hour, numericality: {less_than: :close_hour}
+    # validates :close_hour, numericality: {greater_than: :open_hour}
+    validate :validate_time
+    # validate :validate_close_hour
+
+    private
+
+    def validate_time
+        if open_minutes == 0 && close_minutes == 0 || open_minutes == 30 && close_minutes == 30
+            if open_hour == close_hour
+                errors.add(:open_hour, "can't be the same as closing hour1")
+            end
+        end
+        if open_minutes == 30 && close_minutes == 0
+            if open_hour == close_hour
+                errors.add(:open_hour, "can't be later than closing hour2")
+            end
+        end
+        # byebug
+        if open_hour > close_hour
+            errors.add(:open_hour, "can't be later than closing hour3")
+        end
+        if close_hour < open_hour
+            errors.add(:close_hour, "can't be earlier than opening hour4")
+        end
     end
 
-    def validate_close_hour
-        
-    end
 end
-
-# validates :province, inclusion: { in: %w[British Columbia] }
