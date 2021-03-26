@@ -105,20 +105,38 @@ class Day{
         let halfHours = (this.close_hour - this.open_hour) * 2
         let thirtyOpen = (this.open_minutes).toString()
         let thirtyClose = (this.close_minutes).toString()
+        let initialAmpm = this.open_ampm
         if (this.open_minutes === 30 && this.close_minutes === 0) {halfHours -= 1}
         if (this.close_minutes === 30 && this.open_minutes === 0) {halfHours += 1}
         let startHour = this.deconvertFrom24Hours(this.open_hour, this.open_ampm)
         
         for (let i = 0; i < halfHours; i++) {
+            let displayHour
+            if (startHour > 12) {displayHour = startHour - 12} else {displayHour = startHour}
             if (thirtyOpen === '0') {
                 thirtyOpen = '00'
             }
             let ampmTrue
-            if (startHour > 12) {startHour -= 12; ampmTrue = 'PM'} else if (startHour === 12) {ampmTrue = 'PM'} else {ampmTrue = "AM"}
-            let hH = `<div class="book-time" id="book-time-${i+1}">${startHour}:${thirtyOpen} ${ampmTrue}</div>`
+            if (initialAmpm === 'am') {
+                ampmTrue = 'AM'
+            } else if (initialAmpm === 'pm') {
+                ampmTrue = 'PM'
+            }
+            let hH = `<div class="book-time" id="book-time-${i+1}">${displayHour}:${thirtyOpen} ${ampmTrue}</div>`
             bookHours.innerHTML = bookHours.innerHTML + hH
-            if (thirtyOpen === '30') {thirtyOpen = '00'; startHour += 1} else {thirtyOpen = '30'}
+            if (thirtyOpen === '30') {
+                thirtyOpen = '00'
+                startHour += 1
+                if (startHour >= 12) {
+                    initialAmpm = 'pm'
+                } else if (startHour <= 11) {
+                    initialAmpm = 'am'
+                }
+            } else {
+                thirtyOpen = '30'
+            }
         }
+        
     }
 }
 
