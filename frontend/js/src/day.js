@@ -117,7 +117,7 @@ class Day{
                 thirtyOpen = '00'
             }
             let ampmTrue
-            let hH = `<div class="book-time" id="book-time-${i+1}">${displayHour}:${thirtyOpen} ${initialAmpm}</div>`
+            let hH = `<div class="book-time" id="book-time-${i+1}-day-${this.id}">${displayHour}:${thirtyOpen} ${initialAmpm}</div>`
             bookHours.innerHTML = bookHours.innerHTML + hH
             if (thirtyOpen === '30') {
                 thirtyOpen = '00'
