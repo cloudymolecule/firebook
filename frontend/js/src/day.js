@@ -123,7 +123,7 @@ class Day{
 
     deconvertFrom24Hours(hour, ampm){
         let res
-        if (ampm === 'pm') {
+        if (ampm === 'PM') {
             res = hour - 12
         } else {
             res = hour
@@ -140,7 +140,8 @@ class Day{
         let initialAmpm = this.open_ampm
         if (this.open_minutes === 30 && this.close_minutes === 0) {halfHours -= 1}
         if (this.close_minutes === 30 && this.open_minutes === 0) {halfHours += 1}
-        let startHour = this.deconvertFrom24Hours(this.open_hour, this.open_ampm)
+        // let startHour = this.deconvertFrom24Hours(this.open_hour, this.open_ampm)
+        let startHour = this.open_hour
         
         for (let i = 0; i < halfHours; i++) {
             let displayHour
@@ -157,23 +158,13 @@ class Day{
                 thirtyOpen = '00'
                 startHour += 1
                 if (startHour >= 12) {
-                    initialAmpm = 'pm'
+                    initialAmpm = 'PM'
                 } else if (startHour <= 11) {
-                    initialAmpm = 'am'
+                    initialAmpm = 'AM'
                 }
             } else {
                 thirtyOpen = '30'
             }
-        
-            // const item = document.getElementById(`book-time-${i+1}`)
-            // item.addEventListener('click', function(e) {
-                
-            //     console.log('hi')
-            //     item.classList.remove('.deselected')
-            //     document.querySelector(".selected").classList.remove('selected')
-            //     item.classList.add('.selected')
-            // })
-            
         }
         this.addEventListeners('hour')
         

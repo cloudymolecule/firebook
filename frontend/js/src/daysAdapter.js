@@ -68,7 +68,6 @@ class DaysAdapter{
         const close_ampm = document.getElementById('close-ampm').value
 
         let dayObj = {num_day, month, year, open_hour, open_minutes, open_ampm, close_hour, close_minutes, close_ampm}
-
         let configObj = {
             method: 'PATCH',
             headers: {
@@ -112,7 +111,7 @@ class DaysAdapter{
 
     convertTimeTo24(hour, ampm){
         let h = parseInt(hour, 10)
-        if (ampm === 'pm'){
+        if (ampm === 'PM'){
             h = h + 12
         }
         return h
