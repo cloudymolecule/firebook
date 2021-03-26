@@ -330,7 +330,8 @@ body {
         "day-date day-date"
         "day-edit-button day-delete-button"
     ;
-    /* opacity: 0.4; */
+    border: solid;
+    border-color: rgb(0, 0, 0);
 }
 
 .day-date {
@@ -354,8 +355,14 @@ body {
     background-color: rgb(255, 0, 0);
 }
 
-.selected {
+.selected-time {
     background-color: rgba(19, 140, 0, 0.6);
+    border: solid;
+    border-color: azure;
+}
+
+.selected-day {
+    background-color: rgba(19, 140, 0, 0.4);
     border: solid;
     border-color: azure;
 }

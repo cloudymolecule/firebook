@@ -40,33 +40,38 @@ class Day{
             date.addEventListener('click', this.apptDay)
             edit.addEventListener('click', this.openEditDay)
             del.addEventListener('click', this.deleteDay)
+
+            const selDays = document.getElementsByClassName('each-day')
+            Array.from(selDays).forEach((el) => {
+                el.addEventListener('click', this.selectDay)
+            })
         }
         if (type === 'hour') {
             const halfHours = document.getElementsByClassName('book-time')
             Array.from(halfHours).forEach((el) => {
-                el.addEventListener('click', this.test)
+                el.addEventListener('click', this.selectHalfHour)
             })
         }
     }
 
-    test(){
-        let selectedElements = document.getElementsByClassName('selected')
+    selectDay(){
+        let selectedElements = document.getElementsByClassName('selected-day')
         if (selectedElements) {
             Array.from(selectedElements).forEach((el) => {
-                el.classList.remove('selected')
+                el.classList.remove('selected-day')
             })
         }
-        this.classList.add('selected')
+        this.classList.add('selected-day')
+    }
 
-
-
-        // this.classList.remove("deselected")
-
-         //     console.log('hi')
-            //     item.classList.remove('.deselected')
-            //     document.querySelector(".selected").classList.remove('selected')
-            //     item.classList.add('.selected')
-            // })
+    selectHalfHour(){
+        let selectedElements = document.getElementsByClassName('selected-time')
+        if (selectedElements) {
+            Array.from(selectedElements).forEach((el) => {
+                el.classList.remove('selected-time')
+            })
+        }
+        this.classList.add('selected-time')
     }
     apptDay = () => {
         const createEditDay = document.getElementById('create-edit-day')
