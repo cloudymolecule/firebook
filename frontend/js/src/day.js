@@ -32,15 +32,42 @@ class Day{
         eachDay.remove()
     }
 
-    addEventListeners(){
-        const date = document.getElementById(`day-date-${this.id}`)
-        const edit = document.getElementById(`day-edit-button-${this.id}`)
-        const del = document.getElementById(`day-delete-button-${this.id}`)
-        date.addEventListener('click', this.apptDay)
-        edit.addEventListener('click', this.openEditDay)
-        del.addEventListener('click', this.deleteDay)
+    addEventListeners(type){
+        if (type === 'day') {
+            const date = document.getElementById(`day-date-${this.id}`)
+            const edit = document.getElementById(`day-edit-button-${this.id}`)
+            const del = document.getElementById(`day-delete-button-${this.id}`)
+            date.addEventListener('click', this.apptDay)
+            edit.addEventListener('click', this.openEditDay)
+            del.addEventListener('click', this.deleteDay)
+        }
+        if (type === 'hour') {
+            const halfHours = document.getElementsByClassName('book-time')
+            Array.from(halfHours).forEach((el) => {
+                el.addEventListener('click', this.test)
+            })
+        }
     }
 
+    test(){
+        let selectedElements = document.getElementsByClassName('selected')
+        if (selectedElements) {
+            Array.from(selectedElements).forEach((el) => {
+                el.classList.remove('selected')
+            })
+        }
+        this.classList.add('selected')
+
+
+
+        // this.classList.remove("deselected")
+
+         //     console.log('hi')
+            //     item.classList.remove('.deselected')
+            //     document.querySelector(".selected").classList.remove('selected')
+            //     item.classList.add('.selected')
+            // })
+    }
     apptDay = () => {
         const createEditDay = document.getElementById('create-edit-day')
         const bookAppt = document.getElementById('book-appt')
@@ -117,7 +144,9 @@ class Day{
                 thirtyOpen = '00'
             }
             let ampmTrue
-            let hH = `<div class="book-time" id="book-time-${i+1}-day-${this.id}">${displayHour}:${thirtyOpen} ${initialAmpm}</div>`
+
+
+            let hH = `<div class="book-time" day-id="${this.id}" id="book-time-${i+1}">${displayHour}:${thirtyOpen} ${initialAmpm}</div>`
             bookHours.innerHTML = bookHours.innerHTML + hH
             if (thirtyOpen === '30') {
                 thirtyOpen = '00'
@@ -130,7 +159,18 @@ class Day{
             } else {
                 thirtyOpen = '30'
             }
+        
+            // const item = document.getElementById(`book-time-${i+1}`)
+            // item.addEventListener('click', function(e) {
+                
+            //     console.log('hi')
+            //     item.classList.remove('.deselected')
+            //     document.querySelector(".selected").classList.remove('selected')
+            //     item.classList.add('.selected')
+            // })
+            
         }
+        this.addEventListeners('hour')
         
     }
 }

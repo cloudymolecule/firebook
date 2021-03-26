@@ -11,7 +11,7 @@ class DaysAdapter{
                 response.data.forEach(element => {
                     let day = new Day(element.attributes)
                     day.attachToDom()
-                    day.addEventListeners()
+                    day.addEventListeners('day')
                 })
             }
         })
@@ -47,7 +47,7 @@ class DaysAdapter{
                 console.log(response)
                 let day = new Day(response.data.attributes)
                 day.attachToDom()
-                day.addEventListeners()
+                day.addEventListeners('day')
             }
             
         })
@@ -89,7 +89,7 @@ class DaysAdapter{
                 let day = new Day(response)
                 day.attachToDom()
                 day.deleteInDom(response.id)
-                day.addEventListeners()
+                day.addEventListeners('day')
             }
         })
     }

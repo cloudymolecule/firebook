@@ -160,8 +160,10 @@ body {
 }
 
 .book-time {
-    background-color: rgb(0, 0, 0, 0.6) !important;
+    background-color: rgb(0, 0, 0, 0.6);
     box-shadow: 3px 3px 1px rgba(126, 126, 126, 0.4);
+    border: solid;
+    border-color: black;
     text-align: center;
     font-size: 25px;
     height: fit-content;
@@ -350,4 +352,10 @@ body {
 
 .day-delete-button:hover {
     background-color: rgb(255, 0, 0);
+}
+
+.selected {
+    background-color: rgba(19, 140, 0, 0.6);
+    border: solid;
+    border-color: azure;
 }
