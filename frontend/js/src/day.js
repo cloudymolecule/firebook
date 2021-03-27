@@ -134,37 +134,49 @@ class Day{
     createAndAppendHalfHourDivs(){
         const bookHours = document.getElementById('book-hours')
         bookHours.innerHTML = ""
+        
         let halfHours = (this.close_hour - this.open_hour) * 2
+        if ((this.close_hour - this.open_hour) >= 11) {halfHours = halfHours * 2 + 2}
+
         let thirtyOpen = (this.open_minutes).toString()
+        if (thirtyOpen === '0') {thirtyOpen = '00'}
+        
         let thirtyClose = (this.close_minutes).toString()
+        if (thirtyClose === '0') {thirtyClose = '00'}
+        
         let initialAmpm = this.open_ampm
+
         if (this.open_minutes === 30 && this.close_minutes === 0) {halfHours -= 1}
         if (this.close_minutes === 30 && this.open_minutes === 0) {halfHours += 1}
-        // let startHour = this.deconvertFrom24Hours(this.open_hour, this.open_ampm)
+
         let startHour = this.open_hour
+        if (startHour > 12) {startHour -= 12}
         
         for (let i = 0; i < halfHours; i++) {
             let displayHour
-            if (startHour > 12) {displayHour = startHour - 12} else {displayHour = startHour}
-            if (thirtyOpen === '0') {
-                thirtyOpen = '00'
+            displayHour = startHour
+            
+            if (startHour === 24) {startHour = 12}
+            if (displayHour >= 12) {displayHour -= 12}
+            if (displayHour === 0) {
+                displayHour = 12
             }
-            let ampmTrue
-
 
             let hH = `<div class="book-time" day-id="${this.id}" id="book-time-${i+1}">${displayHour}:${thirtyOpen} ${initialAmpm}</div>`
             bookHours.innerHTML = bookHours.innerHTML + hH
+
             if (thirtyOpen === '30') {
                 thirtyOpen = '00'
                 startHour += 1
-                if (startHour >= 12) {
+                if (displayHour === 11 && initialAmpm === 'AM') {
                     initialAmpm = 'PM'
-                } else if (startHour <= 11) {
+                } else if (displayHour === 11 && initialAmpm === 'PM') {
                     initialAmpm = 'AM'
                 }
             } else {
                 thirtyOpen = '30'
-            }
+            }            
+           
         }
         this.addEventListeners('hour')
         
