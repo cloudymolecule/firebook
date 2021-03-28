@@ -1,13 +1,18 @@
 class Day < ApplicationRecord
     has_many :appointments, :dependent => :destroy
 
-    validates :num_day, :month, :year, :open_hour, :open_minutes, :open_ampm, :close_ampm, :close_hour, :close_minutes, presence: true
+    validates :num_day, :month, :year, :open_minutes, :open_ampm, :close_ampm, :close_minutes, presence: true
     validates :num_day, :year, numericality: {only_integer: true, message: "Only whole numbers allowed."}
-    validate :validate_time
-    validates_length_of :num_day, minimum: 4, maximum: 4
+    validate :validate_time, if: :hours_present?
+    validates_length_of :num_day, maximum: 4
+    validates_length_of :year, minimum: 4, maximum: 4
     validates_uniqueness_of :num_day, :scope => [:month, :year]
 
     private
+
+    def hours_present?
+        open_hour && close_hour
+    end
 
     def validate_time
         if open_minutes == 0 && close_minutes == 0 || open_minutes == 30 && close_minutes == 30
