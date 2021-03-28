@@ -32,6 +32,7 @@ class AppointmentsAdapter{
             
         })
     }
+
     isThereATime(){
         let time = document.getElementsByClassName('selected-time')[0]
         if (!time) {

@@ -15,10 +15,13 @@ class Appointment{
         const displayHour = document.getElementById('display-hour')
         this.element.classList.add("each-half-hour")
         this.element.innerHTML = `
-            <input type="hidden" id="appointment-id" value="${this.id}">
-            <h3 class="appointment-half-hour" id="appointment-half-hour-${this.id}"></h3>
-            <div class="appointment-edit-button" id="appointment-edit-button-${this.id}">edit</div>
-            <div class="appointment-delete-button" id="appointment-delete-button-${this.id}">delete</div>`
+            <input type="hidden" id="appt-half-hour-id" value="${this.id}">
+            <label for="appt-client" id="appt-client-label">Client:</label>
+            <em class="appt-client" id="appt-client">${this.client}</em>
+            <label for="appt-barber" id="appt-barber-label">Barber:</label>
+            <em class="appt-barber" id="appt-barber">${this.barber}</em>
+            <div class="appt-edit-button" id="appt-edit-button-${this.id}">edit</div>
+            <div class="appt-delete-button" id="appot-delete-button-${this.id}">delete</div>`
         displayHour.append(this.element)
     }
 }

@@ -80,6 +80,7 @@ class Day{
         createEditDay.style.display = 'none'
         bookAppt.style.display = 'grid'
         this.createAndAppendHalfHourDivs()
+        daysAdapter.fetchDay(this.id)
     }
 
     openEditDay = () => {

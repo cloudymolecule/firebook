@@ -17,6 +17,25 @@ class DaysAdapter{
         })
     }
 
+    fetchDay(id){
+        fetch(this.baseUrl + `/${id}`)
+        .then(res => res.json())
+        .then(response => {
+            if (response.data) {
+                response.data.attributes.appointments.forEach(element => {
+                    let appointment = new Appointment(element)
+                    appointment.attachToDom()
+                })
+                
+                
+                
+                // let day = new Day(element.attributes)
+                // day.attachToDom()
+                // day.addEventListeners('day')
+            }
+        })
+    }
+
     fetchPostDays(){
         const num_day = document.getElementById('day').value
         const month = document.getElementById('month').value

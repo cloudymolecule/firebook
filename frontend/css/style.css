@@ -370,3 +370,54 @@ body {
     border: solid;
     border-color: azure;
 }
+
+.each-half-hour {
+    display: grid;
+    height: fit-content;
+    /* gap: 1em; */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    background-color: rgb(0, 0, 0, 0.4);
+    text-align: center;
+    grid-template-areas: 
+        "appt-client appt-client"
+        "appt-barber appt-barber"
+        ". ."
+        "appt-edit-button appt-delete-button"
+    ;
+    border: solid;
+    border-color: rgb(0, 0, 0);
+}
+
+.appt-client-label {
+    grid-area: appt-client-label;
+}
+
+.appt-client {
+    grid-area: appt-client;
+}
+
+.appt-barber-label {
+    grid-area: appt-barber-label;
+}
+.appt-barber {
+    grid-area: appt-barber;
+}
+
+.appt-edit-button {
+    grid-area: appt-edit-button;
+    background-color: rgb(0, 255, 21, 0.4);
+}
+
+.appt-delete-button {
+    grid-area: appt-delete-button;
+    background-color: rgb(255, 0, 0, 0.4);
+}
+
+.appt-edit-button:hover {
+    background-color: rgb(0, 255, 21);
+}
+
+.appt-delete-button:hover {
+    background-color: rgb(255, 0, 0);
+}
