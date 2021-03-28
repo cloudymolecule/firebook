@@ -178,8 +178,7 @@ body {
     background-color: rgb(96, 96, 96, 0.2);
     grid-template-areas: 
         "book-barber . book-client"
-        ". book-save-update ."
-    ;
+        ". book-save-update .";
 }
 
 #book-barber, #book-client {
