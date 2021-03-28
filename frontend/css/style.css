@@ -84,6 +84,15 @@ body {
 
 .display-hour {
     grid-area: display-hour;
+    overflow: auto;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+}
+
+.display-hour::-webkit-scrollbar {
+    display: none;
 }
 
 .create {
@@ -380,8 +389,8 @@ body {
     background-color: rgb(0, 0, 0, 0.4);
     text-align: center;
     grid-template-areas: 
-        "appt-client appt-client"
-        "appt-barber appt-barber"
+        "appt-client-label appt-client"
+        "appt-barber-label appt-barber"
         ". ."
         "appt-edit-button appt-delete-button"
     ;

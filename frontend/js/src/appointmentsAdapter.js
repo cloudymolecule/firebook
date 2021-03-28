@@ -23,14 +23,19 @@ class AppointmentsAdapter{
             if (response.errors) {
                 console.log(response.errors)
             } else {
-                console.log(response)
                 let appointment = new Appointment(response.data.attributes)
-                console.log(appointment)
                 appointment.attachToDom()
-                // appointment.addEventListeners('appointment')
             }
             
         })
+    }
+
+    fetchPatchAppointment(){
+        console.log('patch appointment')
+    }
+
+    deleteAppointment(){
+        console.log('delete appointment')
     }
 
     isThereATime(){

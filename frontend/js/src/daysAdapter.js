@@ -22,16 +22,10 @@ class DaysAdapter{
         .then(res => res.json())
         .then(response => {
             if (response.data) {
+                // Appointment.All = []
                 response.data.attributes.appointments.forEach(element => {
                     let appointment = new Appointment(element)
-                    appointment.attachToDom()
                 })
-                
-                
-                
-                // let day = new Day(element.attributes)
-                // day.attachToDom()
-                // day.addEventListeners('day')
             }
         })
     }
@@ -63,7 +57,6 @@ class DaysAdapter{
             if (response.errors) {
                 console.log(response.errors)
             } else {
-                console.log(response)
                 let day = new Day(response.data.attributes)
                 day.attachToDom()
                 day.addEventListeners('day')

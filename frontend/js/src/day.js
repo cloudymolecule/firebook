@@ -73,13 +73,17 @@ class Day{
             })
         }
         this.classList.add('selected-time')
+        Appointment.displayHalfHours(this.innerText)
     }
     apptDay = () => {
         const createEditDay = document.getElementById('create-edit-day')
         const bookAppt = document.getElementById('book-appt')
+        const displayHour = document.getElementById('display-hour')
+        displayHour.innerHTML = ""
         createEditDay.style.display = 'none'
         bookAppt.style.display = 'grid'
         this.createAndAppendHalfHourDivs()
+        Appointment.All = []
         daysAdapter.fetchDay(this.id)
     }
 
@@ -89,7 +93,6 @@ class Day{
         const createEditBttn = document.querySelector(`create-edit-button-${this.id}`)
         let specificDay = Day.getDayById(this.id)
         createEditButton.id = this.id
-        console.log(specificDay)
         createEditDay.style.display = 'grid'
         bookAppt.style.display = 'none'
         
