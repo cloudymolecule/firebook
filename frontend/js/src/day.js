@@ -79,6 +79,10 @@ class Day{
         const createEditDay = document.getElementById('create-edit-day')
         const bookAppt = document.getElementById('book-appt')
         const displayHour = document.getElementById('display-hour')
+        const bookBarber = document.getElementById('book-barber')
+        const bookClient = document.getElementById('book-client')
+        bookBarber.value = ""
+        bookClient.value = ""
         displayHour.innerHTML = ""
         createEditDay.style.display = 'none'
         bookAppt.style.display = 'grid'

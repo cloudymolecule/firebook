@@ -33,11 +33,29 @@ class Appointment{
     }
 
     editAppt = () => { 
-        AppointmentsAdapter.fetchPatchAppointment()
+        const eachAppt = document.getElementsByClassName('each-half-hour')
+        const bookBarber = document.getElementById('book-barber')
+        const bookClient = document.getElementById('book-client')
+        bookBarber.value = this.barber
+        bookClient.value = this.client
+        Array.from(eachAppt).forEach((el) => {
+            el.addEventListener('click', this.selectAppt)
+        })
+        
+    }
+
+    selectAppt(){
+        let selectedElements = document.getElementsByClassName('selected-appt')
+        if (selectedElements) {
+            Array.from(selectedElements).forEach((el) => {
+                el.classList.remove('selected-appt')
+            })
+        }
+        this.classList.add('selected-appt')
     }
 
     deleteAppt = () => { 
-        AppointmentsAdapter.deleteAppointment()
+        // AppointmentsAdapter.deleteAppointment()
     }
 
     static displayHalfHours = (time) => {

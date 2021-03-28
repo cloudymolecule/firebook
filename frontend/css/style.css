@@ -430,3 +430,9 @@ body {
 .appt-delete-button:hover {
     background-color: rgb(255, 0, 0);
 }
+
+.selected-appt {
+    background-color: rgba(19, 140, 0, 0.6);
+    border: solid;
+    border-color: azure;
+}
