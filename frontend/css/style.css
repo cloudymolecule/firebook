@@ -139,18 +139,6 @@ body {
     grid-template-rows: auto;
 }
 
-/* .book-hours {
-    grid-area: book-hours;
-    display: grid;
-    width: 100%;
-    max-height: 100%;
-    overflow:scroll;
-    padding: 5px;
-    gap: 4%;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-} */
-
 .book-hours::-webkit-scrollbar {
     display: none;
 }
@@ -184,23 +172,40 @@ body {
     height: fit-content;
     padding: 5px;
     gap: 1em;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     padding: 1em;
     background-color: rgb(96, 96, 96, 0.2);
+    grid-template-areas: 
+        "book-barber . book-client"
+        ". book-save-update ."
+    ;
 }
 
 #book-barber, #book-client {
     background-color: rgba(72, 72, 72);
     color: white;
 }
-.book-save-update, .book-delete {
+
+.book-barber {
+    grid-area: book-barber;
+}
+
+.book-client {
+    grid-area: book-client;
+}
+
+
+
+.book-save-update {
+    grid-area: book-save-update;
     background-color: rgb(58, 58, 58);
     box-shadow: 3px 3px 1px rgba(255, 255, 255, 0.4);
     background-color: rgb(60, 60, 60);
     font-size: 20px;
     text-align: center;
 }
+
 
 .book-save-update:hover {
     background-color: rgb(0, 91, 3) !important;

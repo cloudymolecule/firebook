@@ -176,10 +176,8 @@ class Day{
             } else {
                 thirtyOpen = '30'
             }            
-           
         }
         this.addEventListeners('hour')
-        
     }
 }
 
