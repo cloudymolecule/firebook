@@ -21,7 +21,7 @@ class AppointmentsAdapter{
         .then(res => res.json())
         .then(response => {
             if (response.errors) {
-                console.log(response.errors)
+                Appointment.errorsDisplay(response.errors)
             } else {
                 let appointment = new Appointment(response.data.attributes)
                 appointment.attachToDom()
@@ -49,7 +49,7 @@ class AppointmentsAdapter{
         .then(res => res.json())
         .then(response => {
             if (response.errors) {
-                console.log(response.errors)
+                Appointment.errorsDisplay(response.errors)
             } else {
                 console.log(response)
                 let appointment = new Appointment(response)

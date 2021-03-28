@@ -92,7 +92,7 @@ class DaysAdapter{
         .then(res => res.json())
         .then(response => {
             if (response.errors) {
-                //display errors
+                Day.errorsDisplay(response.errors)
             } else {
                 Day.all = Day.all.filter(function(day){
                     return day.id !== response.id
