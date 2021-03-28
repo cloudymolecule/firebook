@@ -41,7 +41,7 @@ class Day{
             date.addEventListener('click', this.apptDay)
             edit.addEventListener('click', this.openEditDay)
             del.addEventListener('click', this.deleteDay)
-
+            
             const selDays = document.getElementsByClassName('each-day')
             Array.from(selDays).forEach((el) => {
                 el.addEventListener('click', this.selectDay)
@@ -49,8 +49,10 @@ class Day{
         }
         if (type === 'hour') {
             const halfHours = document.getElementsByClassName('book-time')
+            
             Array.from(halfHours).forEach((el) => {
                 el.addEventListener('click', this.selectHalfHour)
+                
             })
         }
     }
@@ -66,10 +68,13 @@ class Day{
     }
 
     selectHalfHour(){
+        const apptSaveUpdate = document.getElementById('appt-save-update')
+        apptSaveUpdate.innerText = 'Save'
         let selectedElements = document.getElementsByClassName('selected-time')
         if (selectedElements) {
             Array.from(selectedElements).forEach((el) => {
                 el.classList.remove('selected-time')
+                
             })
         }
         this.classList.add('selected-time')
@@ -81,8 +86,10 @@ class Day{
         const displayHour = document.getElementById('display-hour')
         const bookBarber = document.getElementById('book-barber')
         const bookClient = document.getElementById('book-client')
+        const apptSaveUpdate = document.getElementById('appt-save-update')
         bookBarber.value = ""
         bookClient.value = ""
+        apptSaveUpdate.innerText = 'Save'
         displayHour.innerHTML = ""
         createEditDay.style.display = 'none'
         bookAppt.style.display = 'grid'
@@ -92,9 +99,13 @@ class Day{
     }
 
     openEditDay = () => {
+        const displayHour = document.getElementById('display-hour')
         const createEditDay = document.getElementById('create-edit-day')
         const bookAppt = document.getElementById('book-appt')
-        const createEditBttn = document.querySelector(`create-edit-button-${this.id}`)
+        // const createEditBttn = document.querySelector(`create-edit-button-${this.id}`)
+        const createEditButtonId = document.getElementById('create-edit-button-id')
+        createEditButtonId.value = this.id
+        displayHour.innerHTML = ""
         let specificDay = Day.getDayById(this.id)
         createEditButton.id = this.id
         createEditDay.style.display = 'grid'

@@ -20,17 +20,19 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  # def update
-  #   if appointment.update(appointment_params)
-  #     render json: appointment
-  #   else
-  #     render json: appointment.errors, status: :unprocessable_entity
-  #   end
-  # end
+  def update
+    appointment = Appointment.find(params[:id])
+    if appointment.update(appointment_params)
+      render json: appointment
+    else
+      render json: {errors: appointment.errors.full_messages}
+    end
+  end
 
-  # def destroy
-  #   appointment.destroy
-  # end
+  def destroy
+    appointment = Appointment.find(params[:id])
+    appointment.destroy
+  end
 
   private
 

@@ -25,6 +25,11 @@ class Appointment{
         displayHour.append(this.element)
     }
 
+    deleteInDom(id){
+        const eachAppt = document.getElementById(`appointment-${id}`)
+        eachAppt.remove()
+    }
+
     addEventListeners(){
         const edit = document.getElementById(`appt-edit-button-${this.id}`)
         const del = document.getElementById(`appt-delete-button-${this.id}`)
@@ -36,8 +41,13 @@ class Appointment{
         const eachAppt = document.getElementsByClassName('each-half-hour')
         const bookBarber = document.getElementById('book-barber')
         const bookClient = document.getElementById('book-client')
+        const apptSaveUpdate = document.getElementById('appt-save-update')
+        const apptSaveUpdateid = document.getElementById('appt-save-update-id')
+
         bookBarber.value = this.barber
         bookClient.value = this.client
+        apptSaveUpdate.innerText = 'Update'
+        apptSaveUpdateid.value  = this.id
         Array.from(eachAppt).forEach((el) => {
             el.addEventListener('click', this.selectAppt)
         })
@@ -55,7 +65,7 @@ class Appointment{
     }
 
     deleteAppt = () => { 
-        // AppointmentsAdapter.deleteAppointment()
+        appointmentsAdapter.deleteAppointment(this.id)
     }
 
     static displayHalfHours = (time) => {

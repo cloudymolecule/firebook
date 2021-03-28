@@ -24,7 +24,7 @@ class DaysController < ApplicationController
     if day.update(day_params)
       render json: day
     else
-      render json: day.errors, status: :unprocessable_entity
+      render json: {errors: day.errors.full_messages}
     end
   end
 

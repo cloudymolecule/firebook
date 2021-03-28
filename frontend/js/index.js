@@ -8,7 +8,8 @@ const createEditButton = document.getElementById('create-edit-button')
 const bookAppt = document.getElementById('book-appt')
 const apptSaveUpdate = document.getElementById('appt-save-update')
 const localDayTime = document.getElementById('local-day-time')
-
+const createEditButtonId = document.getElementById('create-edit-button-id')
+const apptSaveUpdateid = document.getElementById('appt-save-update-id')
 localDayTime.innerText = new Date().toLocaleString()
 
 addDayButton.addEventListener('click', () => {
@@ -22,12 +23,17 @@ createEditButton.addEventListener('click', () => {
     if (createEditButton.innerText === 'Create') {
         daysAdapter.fetchPostDays()
     } else {
-        daysAdapter.fetchPatchDay(createEditButton.id)
+        daysAdapter.fetchPatchDay(createEditButtonId.value)
     }
 })
 
 apptSaveUpdate.addEventListener('click', () => {
-    appointmentsAdapter.fetchPostAppointments()
+    if (apptSaveUpdate.innerText === 'Save') {
+        appointmentsAdapter.fetchPostAppointments()
+    } else {
+        appointmentsAdapter.fetchPatchAppointment(apptSaveUpdateid.value)
+    }
+    
 })
 
 setInterval(() => {
