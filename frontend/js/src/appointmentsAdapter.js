@@ -1,14 +1,13 @@
-class AppoitmentsAdapter{
+class AppointmentsAdapter{
     constructor(){
-        this.baseUrl = 'http://localhost:3000/appoitments'
+        this.baseUrl = 'http://localhost:3000/appointments'
     }
-
     fetchPostAppointments(){
-        const time = document.getElementsByClassName('selected-time')[0].value
+        const day_id = document.querySelector('.selected-day #day-id').value
+        const time = this.isThereATime()
         const client = document.getElementById('book-client').value
         const barber = document.getElementById('book-barber').value
-
-        let appointmentObj = {time, client, barber}
+        let appointmentObj = {time, client, barber, day_id}
 
         let configObj = {
             method: 'POST',
@@ -25,14 +24,20 @@ class AppoitmentsAdapter{
                 console.log(response.errors)
             } else {
                 console.log(response)
-                // let appointment = new Appointment(response.data.attributes)
-                // day.attachToDom()
-                // day.addEventListeners('day')
+                let appointment = new Appointment(response.data.attributes)
+                console.log(appointment)
+                appointment.attachToDom()
+                // appointment.addEventListeners('appointment')
             }
             
         })
-        
-
-        
+    }
+    isThereATime(){
+        let time = document.getElementsByClassName('selected-time')[0]
+        if (!time) {
+            return ""
+        } else {
+            return time.innerText
+        }
     }
 }

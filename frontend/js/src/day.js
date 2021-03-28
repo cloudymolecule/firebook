@@ -21,6 +21,7 @@ class Day{
         const displayDay = document.getElementById('display-day')
         this.element.classList.add("each-day")
         this.element.innerHTML = `
+            <input type="hidden" id="day-id" value="${this.id}">
             <h3 class="day-date" id="day-date-${this.id}">${this.month} ${this.num_day}, ${this.year}</h3>
             <div class="day-edit-button" id="day-edit-button-${this.id}">edit</div>
             <div class="day-delete-button" id="day-delete-button-${this.id}">delete</div>`
@@ -162,7 +163,7 @@ class Day{
                 displayHour = 12
             }
 
-            let hH = `<div class="book-time" day-id="${this.id}" id="book-time-${i+1}">${displayHour}:${thirtyOpen} ${initialAmpm}</div>`
+            let hH = `<div class="book-time" id="book-time-${i+1}">${displayHour}:${thirtyOpen} ${initialAmpm}</div>`
             bookHours.innerHTML = bookHours.innerHTML + hH
 
             if (thirtyOpen === '30') {
