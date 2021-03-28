@@ -1,4 +1,5 @@
 const daysAdapter = new DaysAdapter
+const appointmentsAdapter = new AppoitmentsAdapter
 daysAdapter.fetchDays()
 
 const createEditDay = document.getElementById('create-edit-day')
