@@ -42,7 +42,7 @@ class DaysAdapter{
         const close_ampm = document.getElementById('close-ampm').value
 
         let dayObj = {num_day, month, year, open_hour, open_minutes, open_ampm, close_hour, close_minutes, close_ampm}
-
+        
         let configObj = {
             method: 'POST',
             headers: {

@@ -7,6 +7,8 @@ class Day < ApplicationRecord
     validates :year, length: {maximum: 4}
     validate :validate_time
 
+    validates_uniqueness_of :num_day, :scope => [:month, :year]
+    
     private
 
     def validate_time
