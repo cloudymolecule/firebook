@@ -55,7 +55,7 @@ class DaysAdapter{
         .then(res => res.json())
         .then(response => {
             if (response.errors) {
-                console.log(response.errors)
+                Day.errorsDisplay(response.errors)
             } else {
                 let day = new Day(response.data.attributes)
                 day.attachToDom()

@@ -3,12 +3,10 @@ class Day < ApplicationRecord
 
     validates :num_day, :month, :year, :open_hour, :open_minutes, :open_ampm, :close_ampm, :close_hour, :close_minutes, presence: true
     validates :num_day, :year, numericality: {only_integer: true, message: "Only whole numbers allowed."}
-    validates :num_day, length: {maximum: 2}
-    validates :year, length: {maximum: 4}
     validate :validate_time
-
+    validates_length_of :num_day, minimum: 4, maximum: 4
     validates_uniqueness_of :num_day, :scope => [:month, :year]
-    
+
     private
 
     def validate_time
@@ -22,7 +20,6 @@ class Day < ApplicationRecord
                 errors.add(:open_hour, "can't be later than closing hour.")
             end
         end
-        # byebug
         if open_hour > close_hour
             errors.add(:open_hour, "can't be later than closing hour.")
         end
@@ -30,5 +27,4 @@ class Day < ApplicationRecord
             errors.add(:close_hour, "can't be earlier than opening hour.")
         end
     end
-
 end

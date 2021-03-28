@@ -22,8 +22,7 @@
                         <div class="enter-date-day">DATE</div>
                         <div class="date">
                             <label for="day">Day</label>
-                            <input name="day" id="day" autocomplete="off">
-                            
+                            <input name="day" id="day" maxlength="2" autocomplete="off">
                             <label for="month">Month:</label>
                             <select name="month" id="month">
                                 <option disabled selected value>Select Month</option>
@@ -42,13 +41,13 @@
                             </select>
                         
                             <label for="year">Year:</label>
-                            <input name="year" id="year" autocomplete="off">
+                            <input name="year" id="year" maxlength="4" autocomplete="off">
                         </div>
                         <div class="choose-open-hours">OPEN HOURS</div>
                         <div class="open-hours">
                             <label for="hour">Opening Hour:</label>
                             <select name="hour" id="open-hour">
-                                <option disabled selected value>Select Opening Hour</option>
+                                <option value="0">Select Opening Hour</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -77,7 +76,7 @@
 
                             <label for="hour">Closing Hour:</label>
                             <select name="hour" id="close-hour">
-                                <option disabled selected value>Select Closing Hour</option>
+                                <option value="0">Select Closing Hour</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>

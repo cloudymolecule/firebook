@@ -199,5 +199,13 @@ class Day{
         }
         this.addEventListeners('hour')
     }
+
+    static errorsDisplay(errors){
+        let allErrors = []
+        errors.forEach(error => {
+            allErrors.push(error)
+        })
+        alert(allErrors)
+    }
 }
 
