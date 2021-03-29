@@ -22,7 +22,6 @@ class DaysAdapter{
         .then(res => res.json())
         .then(response => {
             if (response.data) {
-                // Appointment.All = []
                 response.data.attributes.appointments.forEach(element => {
                     let appointment = new Appointment(element)
                 })
