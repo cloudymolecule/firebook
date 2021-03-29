@@ -25,6 +25,7 @@ class AppointmentsAdapter{
             } else {
                 let appointment = new Appointment(response.data.attributes)
                 appointment.attachToDom()
+                appointment.addEventListeners()
             }
             
         })
@@ -51,7 +52,6 @@ class AppointmentsAdapter{
             if (response.errors) {
                 Appointment.errorsDisplay(response.errors)
             } else {
-                console.log(response)
                 let appointment = new Appointment(response)
                 appointment.deleteInDom(response.id)
                 appointment.attachToDom()
@@ -61,7 +61,6 @@ class AppointmentsAdapter{
     }
 
     deleteAppointment(apptId){
-        console.log(apptId)
         let configObj = {
             method: 'DELETE',
             headers: {
@@ -72,6 +71,9 @@ class AppointmentsAdapter{
         fetch(`${this.baseUrl}/${apptId}`, configObj)
         .then(response => {
             let apptElem = document.getElementById(`appointment-${apptId}`)
+            Appointment.All = Appointment.All.filter(function(appointment) {
+                return appointment.id !== apptId
+            })
             apptElem.remove()
         })
     }
