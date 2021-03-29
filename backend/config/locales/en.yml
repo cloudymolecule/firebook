@@ -30,4 +30,49 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      day:
+        num_day: "Day of the month"
+        month: "Month"
+        year: "Year"
+        open_hour: "Opening hour"
+        open_minutes: "Opening minutes"
+        open_ampm: "Opening AM/PM"
+        close_hour: "Closing hour"
+        close_minutes: "Closing minutes"
+        close_ampm: "Closing AM/PM"
+      appointment:
+        time: "Appointment time"
+        client: "Client name"
+        barber: "Barber name"
+    errors:
+      models:
+        day:
+          attributes:
+            num_day:
+              blank: "is required"
+            month:
+              blank: "is required"
+            year:
+              blank: "is required"
+            open_hour:
+              blank: "is required"
+            open_minutes:
+              blank: "are required"
+            open_ampm:
+              blank: "is required"
+            close_hour:
+              blank: "is required"
+            close_minutes:
+              blank: "are required"
+            close_ampm:
+              blank: "is required"
+        appointment:
+          attributes:
+            time:
+              blank: "is required"
+            client:
+              blank: "is required"
+            barber:
+              blank: "is required"
