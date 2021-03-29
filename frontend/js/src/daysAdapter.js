@@ -118,6 +118,8 @@ class DaysAdapter{
         }
         fetch(`${this.baseUrl}/${dayId}`, configObj)
         .then(response => {
+            const displayHour = document.getElementById('display-hour')
+            displayHour.innerHTML= ""
             Day.all = Day.all.filter(d => d.id != dayId)
             let dayElem = document.getElementById(`day-${dayId}`)
             dayElem.remove()

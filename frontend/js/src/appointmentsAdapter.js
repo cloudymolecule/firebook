@@ -32,6 +32,7 @@ class AppointmentsAdapter{
     }
 
     fetchPatchAppointment(apptId){
+        const saveUpdateButton = document.getElementById('appt-save-update')
         const day_id = document.querySelector('.selected-day #day-id').value
         const time = this.isThereATime()
         const client = document.getElementById('book-client').value
@@ -53,7 +54,8 @@ class AppointmentsAdapter{
                 Appointment.errorsDisplay(response.errors)
             } else {
                 let appointment = new Appointment(response)
-                appointment.deleteInDom(appointment.id)
+                saveUpdateButton.innerText = "Save"
+                appointment.deleteInDom(response.id)
                 appointment.attachToDom()
                 appointment.addEventListeners()
             }
