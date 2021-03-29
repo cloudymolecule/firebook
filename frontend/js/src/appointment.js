@@ -13,6 +13,7 @@ class Appointment{
     }
 
     attachToDom(){
+        console.log(this)
         const displayHour = document.getElementById('display-hour')
         this.element.classList.add("each-half-hour")
         this.element.innerHTML = `
@@ -65,7 +66,17 @@ class Appointment{
     }
 
     deleteAppt = () => { 
-        appointmentsAdapter.deleteAppointment(this.id)
+        const apptEditButton = document.getElementById(`appt-edit-button-${this.id}`)
+        const apptDeleteButton = document.getElementById(`appt-delete-button-${this.id}`)
+        if (apptDeleteButton.innerText === 'YES') {
+            appointmentsAdapter.deleteAppointment(this.id)
+        }
+        apptEditButton.innerText = 'Confirm'
+        apptDeleteButton.innerText = 'YES'
+        setTimeout(() => {
+            apptEditButton.innerText = 'edit'
+            apptDeleteButton.innerText = 'delete'
+        }, 3000)
     }
 
     static displayHalfHours = (time) => {
@@ -82,7 +93,7 @@ class Appointment{
             halfHour.addEventListeners()
         })
     }
-    
+
     static errorsDisplay(errors){
         let allErrors = []
         errors.forEach(error => {

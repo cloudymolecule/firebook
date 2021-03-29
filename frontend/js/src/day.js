@@ -99,42 +99,54 @@ class Day{
     }
 
     openEditDay = () => {
-        const displayHour = document.getElementById('display-hour')
-        const createEditDay = document.getElementById('create-edit-day')
-        const bookAppt = document.getElementById('book-appt')
-        // const createEditBttn = document.querySelector(`create-edit-button-${this.id}`)
-        const createEditButtonId = document.getElementById('create-edit-button-id')
-        createEditButtonId.value = this.id
-        displayHour.innerHTML = ""
-        let specificDay = Day.getDayById(this.id)
-        createEditButton.id = this.id
-        createEditDay.style.display = 'grid'
-        bookAppt.style.display = 'none'
-        
-        const dayF = document.getElementById('day')
-        const monthF = document.getElementById('month')
-        const yearF = document.getElementById('year')
-        const openHourF = document.getElementById('open-hour')
-        const openMinutesF = document.getElementById('open-minutes')
-        const openAmpmF = document.getElementById('open-ampm')
-        const closeHourF = document.getElementById('close-hour')
-        const closeMinutesF = document.getElementById('close-minutes')
-        const closeAmpmF = document.getElementById('close-ampm')
-        
-        dayF.value = specificDay.num_day
-        monthF.value = specificDay.month
-        yearF.value = specificDay.year
-        openHourF.value = this.deconvertFrom24Hours(specificDay.open_hour, specificDay.open_ampm)
-        openMinutesF.value = specificDay.open_minutes
-        openAmpmF.value = specificDay.open_ampm
-        closeHourF.value = this.deconvertFrom24Hours(specificDay.close_hour, specificDay.close_ampm)
-        closeMinutesF.value = specificDay.close_minutes
-        closeAmpmF.value = specificDay.close_ampm
-        createEditButton.innerText = 'Update'
+        const dayEditButton = document.getElementById(`day-edit-button-${this.id}`)
+        if (dayEditButton.innerText !== 'Confirm') {
+            const displayHour = document.getElementById('display-hour')
+            const createEditDay = document.getElementById('create-edit-day')
+            const bookAppt = document.getElementById('book-appt')
+            const createEditButtonId = document.getElementById('create-edit-button-id')
+            createEditButtonId.value = this.id
+            displayHour.innerHTML = ""
+            let specificDay = Day.getDayById(this.id)
+            createEditButton.id = this.id
+            createEditDay.style.display = 'grid'
+            bookAppt.style.display = 'none'
+            
+            const dayF = document.getElementById('day')
+            const monthF = document.getElementById('month')
+            const yearF = document.getElementById('year')
+            const openHourF = document.getElementById('open-hour')
+            const openMinutesF = document.getElementById('open-minutes')
+            const openAmpmF = document.getElementById('open-ampm')
+            const closeHourF = document.getElementById('close-hour')
+            const closeMinutesF = document.getElementById('close-minutes')
+            const closeAmpmF = document.getElementById('close-ampm')
+            
+            dayF.value = specificDay.num_day
+            monthF.value = specificDay.month
+            yearF.value = specificDay.year
+            openHourF.value = this.deconvertFrom24Hours(specificDay.open_hour, specificDay.open_ampm)
+            openMinutesF.value = specificDay.open_minutes
+            openAmpmF.value = specificDay.open_ampm
+            closeHourF.value = this.deconvertFrom24Hours(specificDay.close_hour, specificDay.close_ampm)
+            closeMinutesF.value = specificDay.close_minutes
+            closeAmpmF.value = specificDay.close_ampm
+            createEditButton.innerText = 'Update'
+        }
     }
 
     deleteDay = () => {
-        daysAdapter.deleteDay(this.id)
+        const dayEditButton = document.getElementById(`day-edit-button-${this.id}`)
+        const deleteButton = document.getElementById(`day-delete-button-${this.id}`)
+        if (deleteButton.innerText === 'YES') {
+            daysAdapter.deleteDay(this.id)
+        }
+        dayEditButton.innerText = 'Confirm'
+        deleteButton.innerText = 'YES'
+        setTimeout(() => {
+            dayEditButton.innerText = 'edit'
+            deleteButton.innerText = 'delete'
+        }, 3000)
     }
 
     static getDayById(id){
