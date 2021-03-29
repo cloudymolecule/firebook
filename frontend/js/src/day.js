@@ -17,6 +17,32 @@ class Day{
         Day.all.push(this)
     }
 
+    static addFormButtons() {
+        const addDayButton = document.getElementById('add-day-button')
+        const createEditButton = document.getElementById('create-edit-button')
+        const displayHour = document.getElementById('display-hour')
+        const welcome = document.getElementById('welcome')
+        const createEditDay = document.getElementById('create-edit-day')
+        const bookAppt = document.getElementById('book-appt')
+        const createEditButtonId = document.getElementById('create-edit-button-id')
+        
+        addDayButton.addEventListener('click', () => {
+            displayHour.innerHTML = ""
+            createEditButton.innerText = 'Create'
+            createEditDay.reset()
+            welcome.style.display = 'none'        
+            bookAppt.style.display = 'none'
+            createEditDay.style.display = 'grid'
+        })
+        createEditButton.addEventListener('click', () => {
+            if (createEditButton.innerText === 'Create') {
+                daysAdapter.fetchPostDays()
+            } else {
+                daysAdapter.fetchPatchDay(createEditButtonId.value)
+            }
+        })
+    }
+
     attachToDom(){
         const displayDay = document.getElementById('display-day')
         this.element.classList.add("each-day")
@@ -55,6 +81,7 @@ class Day{
                 
             })
         }
+        
     }
 
     selectDay(){

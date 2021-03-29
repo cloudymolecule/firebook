@@ -12,6 +12,24 @@ class Appointment{
         Appointment.All.push(this)
     }
 
+    static addFormButton() {
+        const apptSaveUpdate = document.getElementById('appt-save-update')
+        const apptSaveUpdateid = document.getElementById('appt-save-update-id')
+        
+        apptSaveUpdate.addEventListener('click', () => {
+            const bookBarber = document.getElementById('book-barber')
+            const bookClient = document.getElementById('book-client')
+            if (apptSaveUpdate.innerText === 'Save') {
+                appointmentsAdapter.fetchPostAppointments()
+            } else {
+                appointmentsAdapter.fetchPatchAppointment(apptSaveUpdateid.value)
+            }
+            bookBarber.value = ""
+            bookClient.value = ""
+            
+        })
+    }
+
     attachToDom(){
         const displayHour = document.getElementById('display-hour')
         this.element.classList.add("each-half-hour")
