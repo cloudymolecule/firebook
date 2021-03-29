@@ -22,7 +22,7 @@ class Day{
         this.element.classList.add("each-day")
         this.element.innerHTML = `
             <input type="hidden" id="day-id" value="${this.id}">
-            <h3 class="day-date" id="day-date-${this.id}">${this.month} ${this.num_day}, ${this.year}</h3>
+            <p class="day-date" id="day-date-${this.id}">${this.month} ${this.num_day}, ${this.year}</p>
             <div class="day-edit-button" id="day-edit-button-${this.id}">edit</div>
             <div class="day-delete-button" id="day-delete-button-${this.id}">delete</div>`
         displayDay.append(this.element)
