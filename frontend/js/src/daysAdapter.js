@@ -80,6 +80,7 @@ class DaysAdapter{
         const close_hour = this.convertTimeTo24(document.getElementById('close-hour').value, document.getElementById('close-ampm').value)
         const close_minutes = document.getElementById('close-minutes').value
         const close_ampm = document.getElementById('close-ampm').value
+        const createEditDay = document.getElementById('create-edit-day')
 
         let dayObj = {num_day, month, year, open_hour, open_minutes, open_ampm, close_hour, close_minutes, close_ampm}
         let configObj = {
@@ -100,6 +101,7 @@ class DaysAdapter{
                     return day.id !== response.id
                 })
                 let day = new Day(response)
+                createEditDay.style.display = 'none'
                 day.attachToDom()
                 day.deleteInDom(response.id)
                 day.addEventListeners('day')
