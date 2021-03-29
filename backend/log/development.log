@@ -46388,3 +46388,482 @@ Processing by DaysController#create as JSON
 Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 5962)
 
 
+Started GET "/days" for ::1 at 2021-03-29 14:19:13 -0400
+Processing by DaysController#index as */*
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 18]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 19]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 20]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 21]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 22]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 23]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 24]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 25]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 26]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 1.3ms | Allocations: 10470)
+
+
+Started GET "/days/18" for ::1 at 2021-03-29 14:19:14 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 18]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.3ms | Allocations: 3447)
+
+
+Started GET "/days/18" for ::1 at 2021-03-29 14:19:15 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 18]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.3ms | Allocations: 3447)
+
+
+Started DELETE "/appointments/12" for ::1 at 2021-03-29 14:19:19 -0400
+Processing by AppointmentsController#destroy as JSON
+  Parameters: {"id"=>"12", "appointment"=>{}}
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:34:in `destroy'
+  [1m[36mAppointment Destroy (1.0ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = ?[0m  [["id", 12]]
+  ↳ app/controllers/appointments_controller.rb:34:in `destroy'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/appointments_controller.rb:34:in `destroy'
+Completed 204 No Content in 6ms (ActiveRecord: 2.1ms | Allocations: 1738)
+
+
+Started GET "/days" for ::1 at 2021-03-29 14:33:33 -0400
+Processing by DaysController#index as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mDay Load (0.4ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 18]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 19]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 20]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 21]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 22]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 23]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 24]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 25]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 26]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+Completed 200 OK in 31ms (Views: 28.0ms | ActiveRecord: 2.1ms | Allocations: 21968)
+
+
+Started GET "/days/18" for ::1 at 2021-03-29 14:33:34 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 18]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.4ms | Allocations: 3454)
+
+
+Started POST "/appointments" for ::1 at 2021-03-29 14:33:43 -0400
+Processing by AppointmentsController#create as JSON
+  Parameters: {"time"=>"9:00 AM", "client"=>"", "barber"=>"324", "day_id"=>"18", "appointment"=>{"time"=>"9:00 AM", "client"=>"", "barber"=>"324", "day_id"=>"18"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."barber" = ? AND "appointments"."time" = ? LIMIT ?[0m  [["barber", "324"], ["time", "9:00 AM"], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 3769)
+
+
+Started POST "/appointments" for ::1 at 2021-03-29 14:33:52 -0400
+Processing by AppointmentsController#create as JSON
+  Parameters: {"time"=>"9:00 AM", "client"=>"2323", "barber"=>"324", "day_id"=>"18", "appointment"=>{"time"=>"9:00 AM", "client"=>"2323", "barber"=>"324", "day_id"=>"18"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."barber" = ? AND "appointments"."time" = ? LIMIT ?[0m  [["barber", "324"], ["time", "9:00 AM"], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 3129)
+
+
+Started POST "/appointments" for ::1 at 2021-03-29 14:34:02 -0400
+Processing by AppointmentsController#create as JSON
+  Parameters: {"time"=>"9:00 AM", "client"=>"", "barber"=>"", "day_id"=>"18", "appointment"=>{"time"=>"9:00 AM", "client"=>"", "barber"=>"", "day_id"=>"18"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."barber" = ? AND "appointments"."time" = ? LIMIT ?[0m  [["barber", ""], ["time", "9:00 AM"], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 3267)
+
+
+Started POST "/appointments" for ::1 at 2021-03-29 14:34:13 -0400
+Processing by AppointmentsController#create as JSON
+  Parameters: {"time"=>"9:30 AM", "client"=>"23", "barber"=>"324", "day_id"=>"18", "appointment"=>{"time"=>"9:30 AM", "client"=>"23", "barber"=>"324", "day_id"=>"18"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."barber" = ? AND "appointments"."time" = ? LIMIT ?[0m  [["barber", "324"], ["time", "9:30 AM"], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Create (0.4ms)[0m  [1m[32mINSERT INTO "appointments" ("time", "client", "barber", "day_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["time", "9:30 AM"], ["client", "23"], ["barber", "324"], ["day_id", 18], ["created_at", "2021-03-29 18:34:13.048513"], ["updated_at", "2021-03-29 18:34:13.048513"]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 2.7ms | Allocations: 5072)
+
+
+Started POST "/appointments" for ::1 at 2021-03-29 14:34:16 -0400
+Processing by AppointmentsController#create as JSON
+  Parameters: {"time"=>"9:30 AM", "client"=>"23", "barber"=>"324", "day_id"=>"18", "appointment"=>{"time"=>"9:30 AM", "client"=>"23", "barber"=>"324", "day_id"=>"18"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."barber" = ? AND "appointments"."time" = ? LIMIT ?[0m  [["barber", "324"], ["time", "9:30 AM"], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 3128)
+
+
+Started GET "/days/19" for ::1 at 2021-03-29 14:35:10 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 19]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 1331)
+
+
+Started GET "/days/19" for ::1 at 2021-03-29 14:35:14 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 19]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 1331)
+
+
+Started GET "/days/18" for ::1 at 2021-03-29 14:35:15 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 18]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.3ms | Allocations: 3447)
+
+
+Started POST "/appointments" for ::1 at 2021-03-29 14:35:26 -0400
+Processing by AppointmentsController#create as JSON
+  Parameters: {"time"=>"11:00 AM", "client"=>"asfd", "barber"=>"dario", "day_id"=>"18", "appointment"=>{"time"=>"11:00 AM", "client"=>"asfd", "barber"=>"dario", "day_id"=>"18"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."barber" = ? AND "appointments"."time" = ? LIMIT ?[0m  [["barber", "dario"], ["time", "11:00 AM"], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Create (0.4ms)[0m  [1m[32mINSERT INTO "appointments" ("time", "client", "barber", "day_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["time", "11:00 AM"], ["client", "asfd"], ["barber", "dario"], ["day_id", 18], ["created_at", "2021-03-29 18:35:26.007046"], ["updated_at", "2021-03-29 18:35:26.007046"]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 2.1ms | Allocations: 3422)
+
+
+Started GET "/days/19" for ::1 at 2021-03-29 14:35:27 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 19]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 1331)
+
+
+Started POST "/appointments" for ::1 at 2021-03-29 14:35:32 -0400
+Processing by AppointmentsController#create as JSON
+  Parameters: {"time"=>"11:00 AM", "client"=>"wqe", "barber"=>"dario", "day_id"=>"19", "appointment"=>{"time"=>"11:00 AM", "client"=>"wqe", "barber"=>"dario", "day_id"=>"19"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."barber" = ? AND "appointments"."time" = ? LIMIT ?[0m  [["barber", "dario"], ["time", "11:00 AM"], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 3127)
+
+
+Started GET "/days" for ::1 at 2021-03-29 14:39:59 -0400
+Processing by DaysController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 18]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 19]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 20]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 21]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 22]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 23]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 24]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 25]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 26]]
+  ↳ app/controllers/days_controller.rb:5:in `index'
+Completed 200 OK in 32ms (Views: 28.6ms | ActiveRecord: 2.4ms | Allocations: 26665)
+
+
+Started GET "/days/18" for ::1 at 2021-03-29 14:40:00 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 18]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.4ms | Allocations: 3736)
+
+
+Started GET "/days/20" for ::1 at 2021-03-29 14:40:04 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 20]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1331)
+
+
+Started GET "/days/19" for ::1 at 2021-03-29 14:40:07 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 19]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 1331)
+
+
+Started GET "/days/19" for ::1 at 2021-03-29 14:40:07 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 19]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1331)
+
+
+Started GET "/days/18" for ::1 at 2021-03-29 14:40:08 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 18]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.3ms | Allocations: 3588)
+
+
+Started GET "/days/19" for ::1 at 2021-03-29 14:40:09 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 19]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.3ms | Allocations: 1332)
+
+
+Started GET "/days/18" for ::1 at 2021-03-29 14:40:14 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 18]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.3ms | Allocations: 3588)
+
+
+Started POST "/appointments" for ::1 at 2021-03-29 14:40:21 -0400
+Processing by AppointmentsController#create as JSON
+  Parameters: {"time"=>"12:00 PM", "client"=>"sd", "barber"=>"dario", "day_id"=>"18", "appointment"=>{"time"=>"12:00 PM", "client"=>"sd", "barber"=>"dario", "day_id"=>"18"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."barber" = ? AND "appointments"."time" = ? AND "appointments"."day_id" = ? LIMIT ?[0m  [["barber", "dario"], ["time", "12:00 PM"], ["day_id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Create (0.4ms)[0m  [1m[32mINSERT INTO "appointments" ("time", "client", "barber", "day_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["time", "12:00 PM"], ["client", "sd"], ["barber", "dario"], ["day_id", 18], ["created_at", "2021-03-29 18:40:21.715181"], ["updated_at", "2021-03-29 18:40:21.715181"]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 2.0ms | Allocations: 3972)
+
+
+Started GET "/days/19" for ::1 at 2021-03-29 14:40:22 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 19]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 1331)
+
+
+Started POST "/appointments" for ::1 at 2021-03-29 14:40:28 -0400
+Processing by AppointmentsController#create as JSON
+  Parameters: {"time"=>"12:00 PM", "client"=>"wer", "barber"=>"dario", "day_id"=>"19", "appointment"=>{"time"=>"12:00 PM", "client"=>"wer", "barber"=>"dario", "day_id"=>"19"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."barber" = ? AND "appointments"."time" = ? AND "appointments"."day_id" = ? LIMIT ?[0m  [["barber", "dario"], ["time", "12:00 PM"], ["day_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Create (0.4ms)[0m  [1m[32mINSERT INTO "appointments" ("time", "client", "barber", "day_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["time", "12:00 PM"], ["client", "wer"], ["barber", "dario"], ["day_id", 19], ["created_at", "2021-03-29 18:40:28.319494"], ["updated_at", "2021-03-29 18:40:28.319494"]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 3461)
+
+
+Started POST "/appointments" for ::1 at 2021-03-29 14:40:31 -0400
+Processing by AppointmentsController#create as JSON
+  Parameters: {"time"=>"12:00 PM", "client"=>"", "barber"=>"dario", "day_id"=>"19", "appointment"=>{"time"=>"12:00 PM", "client"=>"", "barber"=>"dario", "day_id"=>"19"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."barber" = ? AND "appointments"."time" = ? AND "appointments"."day_id" = ? LIMIT ?[0m  [["barber", "dario"], ["time", "12:00 PM"], ["day_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 3482)
+
+
+Started POST "/appointments" for ::1 at 2021-03-29 14:40:34 -0400
+Processing by AppointmentsController#create as JSON
+  Parameters: {"time"=>"12:00 PM", "client"=>"ewrt", "barber"=>"", "day_id"=>"19", "appointment"=>{"time"=>"12:00 PM", "client"=>"ewrt", "barber"=>"", "day_id"=>"19"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."barber" = ? AND "appointments"."time" = ? AND "appointments"."day_id" = ? LIMIT ?[0m  [["barber", ""], ["time", "12:00 PM"], ["day_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 3034)
+
+
+Started POST "/appointments" for ::1 at 2021-03-29 14:40:40 -0400
+Processing by AppointmentsController#create as JSON
+  Parameters: {"time"=>"12:00 PM", "client"=>"dg", "barber"=>"dario", "day_id"=>"19", "appointment"=>{"time"=>"12:00 PM", "client"=>"dg", "barber"=>"dario", "day_id"=>"19"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."barber" = ? AND "appointments"."time" = ? AND "appointments"."day_id" = ? LIMIT ?[0m  [["barber", "dario"], ["time", "12:00 PM"], ["day_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 3165)
+
+
+Started GET "/days/18" for ::1 at 2021-03-29 14:40:44 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 18]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.3ms | Allocations: 3729)
+
+
+Started GET "/days/19" for ::1 at 2021-03-29 14:40:47 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 19]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1472)
+
+
+Started GET "/days/20" for ::1 at 2021-03-29 14:40:53 -0400
+Processing by DaysController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:9:in `show'
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."day_id" = ?[0m  [["day_id", 20]]
+  ↳ app/controllers/days_controller.rb:10:in `show'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1331)
+
+
+Started POST "/appointments" for ::1 at 2021-03-29 14:41:00 -0400
+Processing by AppointmentsController#create as JSON
+  Parameters: {"time"=>"12:00 PM", "client"=>"dario", "barber"=>"dario", "day_id"=>"20", "appointment"=>{"time"=>"12:00 PM", "client"=>"dario", "barber"=>"dario", "day_id"=>"20"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."barber" = ? AND "appointments"."time" = ? AND "appointments"."day_id" = ? LIMIT ?[0m  [["barber", "dario"], ["time", "12:00 PM"], ["day_id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Create (0.4ms)[0m  [1m[32mINSERT INTO "appointments" ("time", "client", "barber", "day_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["time", "12:00 PM"], ["client", "dario"], ["barber", "dario"], ["day_id", 20], ["created_at", "2021-03-29 18:41:00.399849"], ["updated_at", "2021-03-29 18:41:00.399849"]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 3460)
+
+
+Started POST "/appointments" for ::1 at 2021-03-29 14:41:05 -0400
+Processing by AppointmentsController#create as JSON
+  Parameters: {"time"=>"12:00 PM", "client"=>"dario", "barber"=>"dario", "day_id"=>"20", "appointment"=>{"time"=>"12:00 PM", "client"=>"dario", "barber"=>"dario", "day_id"=>"20"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mAppointment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."barber" = ? AND "appointments"."time" = ? AND "appointments"."day_id" = ? LIMIT ?[0m  [["barber", "dario"], ["time", "12:00 PM"], ["day_id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/appointments_controller.rb:16:in `create'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 3168)
+
+
