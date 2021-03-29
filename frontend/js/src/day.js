@@ -81,6 +81,7 @@ class Day{
         Appointment.displayHalfHours(this.innerText)
     }
     apptDay = () => {
+        const welcome = document.getElementById('welcome')
         const createEditDay = document.getElementById('create-edit-day')
         const bookAppt = document.getElementById('book-appt')
         const displayHour = document.getElementById('display-hour')
@@ -91,6 +92,7 @@ class Day{
         bookClient.value = ""
         apptSaveUpdate.innerText = 'Save'
         displayHour.innerHTML = ""
+        welcome.style.display = 'none'
         createEditDay.style.display = 'none'
         bookAppt.style.display = 'grid'
         this.createAndAppendHalfHourDivs()

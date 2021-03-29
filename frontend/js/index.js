@@ -1,6 +1,7 @@
 const daysAdapter = new DaysAdapter
 const appointmentsAdapter = new AppointmentsAdapter
 
+const welcome = document.getElementById('welcome')
 const createEditDay = document.getElementById('create-edit-day')
 const addDayButton = document.getElementById('add-day-button')
 const createEditButton = document.getElementById('create-edit-button')
@@ -21,8 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     addDayButton.addEventListener('click', () => {
         createEditButton.innerText = 'Create'
         createEditDay.reset()
-        createEditDay.style.display = 'grid'
+        welcome.style.display = 'none'        
         bookAppt.style.display = 'none'
+        createEditDay.style.display = 'grid'
     })
     
     createEditButton.addEventListener('click', () => {

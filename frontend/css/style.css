@@ -43,6 +43,34 @@ body {
     background-repeat: no-repeat;
 }
 
+.welcome {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.5fr 1.5fr;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    
+    grid-template-areas: 
+        "banner-big"
+        "w-message";
+}
+
+.banner-big {
+    grid-area: banner-big;
+    margin-left: auto;
+    margin-right: auto;
+    max-width:80%;
+    max-height:80%;
+}
+
+.w-message {
+    grid-area: w-message;
+    font-size: 50px;
+    color: rgb(199, 199, 199);
+    text-shadow: 4px 2px 2px rgb(0, 0, 0);
+}
+
 .header {
     grid-area: header;
     display: grid;
