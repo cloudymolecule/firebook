@@ -127,21 +127,19 @@ class Day{
     }
 
     openEditDay = () => {
+        const welcome = document.getElementById('welcome')
+        const createEditButton = document.getElementById('create-edit-button')
         const dayEditButton = document.getElementById(`day-edit-button-${this.id}`)
         if (dayEditButton.innerText !== 'Confirm') {
             const displayHour = document.getElementById('display-hour')
             const createEditDay = document.getElementById('create-edit-day')
             const bookAppt = document.getElementById('book-appt')
-            const createEditButton = document.getElementById('create-edit-button')
             const createEditButtonId = document.getElementById('create-edit-button-id')
-            const welcome = document.getElementById('welcome')
             
             createEditButtonId.value = this.id
             displayHour.innerHTML = ""
-            
             let specificDay = Day.getDayById(this.id)
-            
-            createEditButton.id = this.id
+            createEditButtonId.value = this.id
             welcome.style.display = 'none'
             bookAppt.style.display = 'none'
             createEditDay.style.display = 'grid'
@@ -170,11 +168,15 @@ class Day{
     }
 
     deleteDay = () => {
+        const displayHour = document.getElementById('display-hour')
+        const bookAppt = document.getElementById('book-appt')
         const dayEditButton = document.getElementById(`day-edit-button-${this.id}`)
         const deleteButton = document.getElementById(`day-delete-button-${this.id}`)
         
         if (deleteButton.innerText === 'YES') {
             daysAdapter.deleteDay(this.id)
+            displayHour.style.display =  'none'
+            bookAppt.style.display = 'none'
         }
         dayEditButton.innerText = 'Confirm'
         deleteButton.innerText = 'YES'

@@ -76,3 +76,4 @@ en:
               blank: "is required"
             barber:
               blank: "is required"
+              taken: "name has been taken for the current half hour."
