@@ -3,6 +3,8 @@ class Day < ApplicationRecord
 
     validates :num_day, :month, :year, :open_minutes, :open_ampm, :close_ampm, :close_minutes, presence: true
     validates :num_day, :year, numericality: {only_integer: true, message: "only allows numbers."}
+    validates :num_day, numericality: {less_than_or_equal_to: 31}
+    validates :year, numericality: {greater_than: 1960, less_than_or_equal_to: Date.current.year}
     validate :validate_time, if: :hours_present?
     validates_length_of :num_day, maximum: 4
     validates_length_of :year, minimum: 4, maximum: 4
