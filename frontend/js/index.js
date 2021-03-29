@@ -12,11 +12,14 @@ const createEditButtonId = document.getElementById('create-edit-button-id')
 const apptSaveUpdateid = document.getElementById('appt-save-update-id')
 localDayTime.innerText = new Date().toLocaleString()
 
-setInterval(() => {
-    localDayTime.innerText = `${new Date().toLocaleString()}`
-}, 1000)
+
 
 document.addEventListener('DOMContentLoaded', () => {
+    
+    setInterval(() => {
+        localDayTime.innerText = `${new Date().toLocaleString()}`
+    }, 1000)
+
     daysAdapter.fetchDays()
 
     addDayButton.addEventListener('click', () => {

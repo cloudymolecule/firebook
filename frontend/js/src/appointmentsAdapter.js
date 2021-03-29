@@ -53,8 +53,9 @@ class AppointmentsAdapter{
                 Appointment.errorsDisplay(response.errors)
             } else {
                 let appointment = new Appointment(response)
-                appointment.deleteInDom(response.id)
+                appointment.deleteInDom(appointment.id)
                 appointment.attachToDom()
+                appointment.addEventListeners()
             }
             
         })
