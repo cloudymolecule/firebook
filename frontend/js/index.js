@@ -2,6 +2,7 @@ const daysAdapter = new DaysAdapter
 const appointmentsAdapter = new AppointmentsAdapter
 
 const welcome = document.getElementById('welcome')
+const displayHour = document.getElementById('display-hour')
 const createEditDay = document.getElementById('create-edit-day')
 const addDayButton = document.getElementById('add-day-button')
 const createEditButton = document.getElementById('create-edit-button')
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     daysAdapter.fetchDays()
 
     addDayButton.addEventListener('click', () => {
+        displayHour.innerHTML = ""
         createEditButton.innerText = 'Create'
         createEditDay.reset()
         welcome.style.display = 'none'        
