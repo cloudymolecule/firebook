@@ -39,15 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     
     apptSaveUpdate.addEventListener('click', () => {
+        const bookBarber = document.getElementById('book-barber')
+        const bookClient = document.getElementById('book-client')
         if (apptSaveUpdate.innerText === 'Save') {
-            const bookBarber = document.getElementById('book-barber')
-            const bookClient = document.getElementById('book-client')
             appointmentsAdapter.fetchPostAppointments()
-            bookBarber.value = ""
-            bookClient.value = ""
         } else {
             appointmentsAdapter.fetchPatchAppointment(apptSaveUpdateid.value)
         }
+        bookBarber.value = ""
+        bookClient.value = ""
         
     })
 })
