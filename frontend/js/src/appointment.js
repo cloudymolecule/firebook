@@ -26,12 +26,12 @@ class Appointment{
             }
             bookBarber.value = ""
             bookClient.value = ""
-            
         })
     }
 
     attachToDom(){
         const displayHour = document.getElementById('display-hour')
+        
         this.element.classList.add("each-half-hour")
         this.element.innerHTML = `
             <label for="appt-client" id="appt-client-label">Client:</label>
@@ -45,12 +45,14 @@ class Appointment{
 
     deleteInDom(id){
         const eachAppt = document.getElementById(`appointment-${id}`)
+        
         eachAppt.remove()
     }
 
     addEventListeners(){
         const edit = document.getElementById(`appt-edit-button-${this.id}`)
         const del = document.getElementById(`appt-delete-button-${this.id}`)
+        
         edit.addEventListener('click', this.editAppt)
         del.addEventListener('click', this.deleteAppt)
     }
@@ -69,11 +71,11 @@ class Appointment{
         Array.from(eachAppt).forEach((el) => {
             el.addEventListener('click', this.selectAppt)
         })
-        
     }
 
     selectAppt(){
         let selectedElements = document.getElementsByClassName('selected-appt')
+        
         if (selectedElements) {
             Array.from(selectedElements).forEach((el) => {
                 el.classList.remove('selected-appt')
@@ -85,9 +87,11 @@ class Appointment{
     deleteAppt = () => { 
         const apptEditButton = document.getElementById(`appt-edit-button-${this.id}`)
         const apptDeleteButton = document.getElementById(`appt-delete-button-${this.id}`)
+        
         if (apptDeleteButton.innerText === 'YES') {
             appointmentsAdapter.deleteAppointment(this.id)
         }
+        
         apptEditButton.innerText = 'Confirm'
         apptDeleteButton.innerText = 'YES'
         setTimeout(() => {
@@ -99,6 +103,7 @@ class Appointment{
     static displayHalfHours = (time) => {
         const displayHour = document.getElementById('display-hour')
         const dayId = document.querySelector('.selected-day #day-id').value
+        
         displayHour.innerHTML = ""
         
         let halfHourAppts = Appointment.All.filter(function(halfHour) {
@@ -113,13 +118,5 @@ class Appointment{
 
     static getApptById(id){
         return Appointment.all.find(appt => appt.id == id)
-    }
-
-    static errorsDisplay(errors){
-        let allErrors = []
-        errors.forEach(error => {
-            allErrors.push(error)
-        })
-        alert(allErrors)
     }
 }

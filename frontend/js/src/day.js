@@ -81,7 +81,6 @@ class Day{
                 
             })
         }
-        
     }
 
     selectDay(){
@@ -133,13 +132,19 @@ class Day{
             const displayHour = document.getElementById('display-hour')
             const createEditDay = document.getElementById('create-edit-day')
             const bookAppt = document.getElementById('book-appt')
+            const createEditButton = document.getElementById('create-edit-button')
             const createEditButtonId = document.getElementById('create-edit-button-id')
+            const welcome = document.getElementById('welcome')
+            
             createEditButtonId.value = this.id
             displayHour.innerHTML = ""
+            
             let specificDay = Day.getDayById(this.id)
+            
             createEditButton.id = this.id
-            createEditDay.style.display = 'grid'
+            welcome.style.display = 'none'
             bookAppt.style.display = 'none'
+            createEditDay.style.display = 'grid'
             
             const dayF = document.getElementById('day')
             const monthF = document.getElementById('month')
@@ -167,6 +172,7 @@ class Day{
     deleteDay = () => {
         const dayEditButton = document.getElementById(`day-edit-button-${this.id}`)
         const deleteButton = document.getElementById(`day-delete-button-${this.id}`)
+        
         if (deleteButton.innerText === 'YES') {
             daysAdapter.deleteDay(this.id)
         }
@@ -194,6 +200,7 @@ class Day{
 
     createAndAppendHalfHourDivs(){
         const bookHours = document.getElementById('book-hours')
+        
         bookHours.innerHTML = ""
         
         let halfHours = (this.close_hour - this.open_hour) * 2
@@ -240,13 +247,4 @@ class Day{
         }
         this.addEventListeners('hour')
     }
-
-    static errorsDisplay(errors){
-        let allErrors = []
-        errors.forEach(error => {
-            allErrors.push(error)
-        })
-        alert(allErrors)
-    }
 }
-

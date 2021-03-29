@@ -54,7 +54,7 @@ class DaysAdapter{
         .then(res => res.json())
         .then(response => {
             if (response.errors) {
-                Day.errorsDisplay(response.errors)
+                alert(response.errors)
             } else {
                 const createEditDay = document.getElementById('create-edit-day')
                 createEditDay.reset()
@@ -94,7 +94,7 @@ class DaysAdapter{
         .then(res => res.json())
         .then(response => {
             if (response.errors) {
-                Day.errorsDisplay(response.errors)
+                alert(response.errors)
             } else {
                 Day.all = Day.all.filter(function(day){
                     return day.id !== response.id
