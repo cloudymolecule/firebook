@@ -57,6 +57,9 @@ class DaysAdapter{
             if (response.errors) {
                 Day.errorsDisplay(response.errors)
             } else {
+                const createEditDay = document.getElementById('create-edit-day')
+                createEditDay.reset()
+                createEditDay.style.display = 'none'
                 let day = new Day(response.data.attributes)
                 day.attachToDom()
                 day.addEventListeners('day')
