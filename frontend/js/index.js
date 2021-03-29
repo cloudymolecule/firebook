@@ -37,7 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     apptSaveUpdate.addEventListener('click', () => {
         if (apptSaveUpdate.innerText === 'Save') {
+            const bookBarber = document.getElementById('book-barber')
+            const bookClient = document.getElementById('book-client')
             appointmentsAdapter.fetchPostAppointments()
+            bookBarber.value = ""
+            bookClient.value = ""
         } else {
             appointmentsAdapter.fetchPatchAppointment(apptSaveUpdateid.value)
         }
