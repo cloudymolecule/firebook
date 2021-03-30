@@ -16,7 +16,7 @@ In the future I'd like to display number of people booked at a certain time and 
 
 ## AUTHORS AND ACKNOWLEDGEMENT
 
-Whoever made JS and ES6 happens, you have my deepest gratitudes, none of this would be possible without you.
+Whoever made JS and ES6 happen, you have my deepest gratitudes, none of this would be possible without you.
 
 ## CONTRIBUTING
 
