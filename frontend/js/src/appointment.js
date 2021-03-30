@@ -31,7 +31,7 @@ class Appointment{
 
     attachToDom(){
         const displayHour = document.getElementById('display-hour')
-        
+        console.log(this)
         this.element.classList.add("each-half-hour")
         this.element.innerHTML = `
             <label for="appt-client" id="appt-client-label">Client:</label>
@@ -41,6 +41,7 @@ class Appointment{
             <div class="appt-edit-button" id="appt-edit-button-${this.id}">edit</div>
             <div class="appt-delete-button" id="appt-delete-button-${this.id}">delete</div>`
         displayHour.append(this.element)
+        displayHour.style.display = 'grid'
     }
 
     deleteInDom(id){
