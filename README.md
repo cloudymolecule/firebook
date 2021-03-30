@@ -24,5 +24,5 @@ Pull requests are welcome and encouraged. If you'd like to make any substantial 
 
 ## LICENSE
 
-[MIT](https://https://github.com/cloudymolecule/firebook/blob/main/LICENSE)
+[MIT](https://github.com/cloudymolecule/firebook/blob/main/LICENSE)
  
