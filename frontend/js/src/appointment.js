@@ -31,7 +31,6 @@ class Appointment{
 
     attachToDom(){
         const displayHour = document.getElementById('display-hour')
-        console.log(this)
         this.element.classList.add("each-half-hour")
         this.element.innerHTML = `
             <label for="appt-client" id="appt-client-label">Client:</label>
