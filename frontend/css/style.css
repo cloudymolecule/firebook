@@ -58,6 +58,17 @@ body {
         "w-message";
 }
 
+.turn-orange {
+    background-color: rgb(255, 119, 0);
+    box-shadow: 3px 3px 1px rgba(126, 126, 126, 0.4);
+    border: solid;
+    border-color: black;
+    text-align: center;
+    font-size: 25px;
+    height: fit-content;
+    max-height: 100%;
+}
+
 .banner-big {
     grid-area: banner-big;
     margin-left: auto;

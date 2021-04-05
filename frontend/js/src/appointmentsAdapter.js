@@ -26,8 +26,10 @@ class AppointmentsAdapter{
                 alert(response.errors)
             } else {
                 let appointment = new Appointment(response.data.attributes)
+                appointment.checkForAppt()
                 appointment.attachToDom()
                 appointment.addEventListeners()
+                
             }
         })
     }

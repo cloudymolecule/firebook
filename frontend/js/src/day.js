@@ -74,8 +74,17 @@ class Day{
             })
         }
         if (type === 'hour') {
+            let halfTimes = document.querySelectorAll('.book-time')
+            halfTimes.forEach(ht => {
+                Appointment.All.forEach(appt => {
+                    if (ht.innerText === appt.time) {
+                        ht.classList.remove('book-time')
+                        ht.classList.add('turn-orange')
+                    }
+                })
+            })
+        
             const halfHours = document.getElementsByClassName('book-time')
-            
             Array.from(halfHours).forEach((el) => {
                 el.addEventListener('click', this.selectHalfHour)
                 
