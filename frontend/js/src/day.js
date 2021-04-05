@@ -85,7 +85,12 @@ class Day{
             })
         
             const halfHours = document.getElementsByClassName('book-time')
+            const halfHours2 = document.getElementsByClassName('turn-orange')
             Array.from(halfHours).forEach((el) => {
+                el.addEventListener('click', this.selectHalfHour)
+                
+            })
+            Array.from(halfHours2).forEach((el) => {
                 el.addEventListener('click', this.selectHalfHour)
                 
             })
