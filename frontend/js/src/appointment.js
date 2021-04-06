@@ -50,11 +50,14 @@ class Appointment{
     }
 
     checkForAppt(){
+        
         let halfTimes = document.querySelectorAll('.book-time')
         halfTimes.forEach(element => {
             if (element.innerText === this.time) {
                 element.classList.remove('book-time')
                 element.classList.add('turn-orange')
+            } else {
+                element.classList.remove('turn-orange')
             }
         })
     }
@@ -62,7 +65,6 @@ class Appointment{
     addEventListeners(){
         const edit = document.getElementById(`appt-edit-button-${this.id}`)
         const del = document.getElementById(`appt-delete-button-${this.id}`)
-        // const book = document.getElementById(`book-time-${this.id}`)
         edit.addEventListener('click', this.editAppt)
         del.addEventListener('click', this.deleteAppt)
     }
@@ -91,7 +93,6 @@ class Appointment{
                 el.classList.remove('selected-appt')
             })
         }
-        
         this.classList.add('selected-appt')
     }
 

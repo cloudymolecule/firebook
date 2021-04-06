@@ -75,6 +75,7 @@ class Day{
         }
         if (type === 'hour') {
             let halfTimes = document.querySelectorAll('.book-time')
+
             halfTimes.forEach(ht => {
                 Appointment.All.forEach(appt => {
                     if (ht.innerText === appt.time) {

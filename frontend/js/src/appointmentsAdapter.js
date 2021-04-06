@@ -29,7 +29,6 @@ class AppointmentsAdapter{
                 appointment.checkForAppt()
                 appointment.attachToDom()
                 appointment.addEventListeners()
-                
             }
         })
     }

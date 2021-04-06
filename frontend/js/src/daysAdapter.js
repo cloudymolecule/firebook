@@ -22,8 +22,14 @@ class DaysAdapter{
         .then(res => res.json())
         .then(response => {
             if (response.data) {
+                let halfOrange = document.querySelectorAll('.turn-orange')
+                halfOrange.forEach(element => {
+                    element.classList.remove('turn-orange')
+                    element.classList.add('book-time') 
+                })  
                 response.data.attributes.appointments.forEach(element => {
                     let appointment = new Appointment(element)
+                    appointment.checkForAppt()
                 })
             }
         })
